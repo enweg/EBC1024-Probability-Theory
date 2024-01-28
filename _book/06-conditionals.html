@@ -315,15 +315,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&lt;</span> <span class="sc">-</span><span class="fl">0.9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.9782447 -0.9389969 -0.9811282 -0.9578900 -0.9136863 -0.9211392
- [7] -0.9246274 -0.9834299 -0.9358669 -0.9137899 -0.9510677 -0.9056471
-[13] -0.9684803 -0.9829233 -0.9786647 -0.9775101 -0.9104066 -0.9278092
-[19] -0.9244264 -0.9557928 -0.9165987 -0.9068204 -0.9996507 -0.9026827
-[25] -0.9968392 -0.9285828 -0.9302294 -0.9364670 -0.9131578 -0.9247119
-[31] -0.9479261 -0.9924805 -0.9230884 -0.9487641 -0.9008896 -0.9476231
-[37] -0.9024246 -0.9776485 -0.9624560 -0.9923312 -0.9383465 -0.9865862
-[43] -0.9577418 -0.9272207 -0.9269745 -0.9239502 -0.9238322 -0.9893707
-[49] -0.9893593 -0.9257198 -0.9172628 -0.9751527 -0.9545436 -0.9739408</code></pre>
+<pre><code> [1] -0.9472103 -0.9142213 -0.9950374 -0.9231204 -0.9433646 -0.9210008
+ [7] -0.9292825 -0.9991314 -0.9875529 -0.9203606 -0.9272297 -0.9738460
+[13] -0.9890922 -0.9809650 -0.9122321 -0.9530898 -0.9217349 -0.9922127
+[19] -0.9035268 -0.9400769 -0.9711786 -0.9653097 -0.9295998 -0.9489707
+[25] -0.9891762 -0.9060481 -0.9191194 -0.9411240 -0.9331973 -0.9805814
+[31] -0.9565909 -0.9417145 -0.9284790 -0.9452837 -0.9288289 -0.9145471
+[37] -0.9847937 -0.9791249 -0.9243712 -0.9781422 -0.9905193 -0.9690008
+[43] -0.9952314 -0.9415654 -0.9318481 -0.9523495 -0.9723210 -0.9965207
+[49] -0.9238093 -0.9814004 -0.9354448 -0.9335471</code></pre>
 </div>
 </div>
 <!-- Conditionals can be used to find the proportion of observations satisfying a condition -->
@@ -334,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>probability <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">&lt;</span> <span class="sc">-</span><span class="fl">0.9</span>) <span class="sc">/</span> N</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.059</code></pre>
+<pre><code>[1] 0.051</code></pre>
 </div>
 </div>
 <p>Care must be taken when applying logical operators to a vector and using the result in an <code>if</code> statement. Since the logical operator works elementwise, the conditional will return a vector. It is then not clear what this should mean for the <code>if</code> statement. Should the <code>if</code> statement be evaluated once per element in the vector? Only if all are true? Only if at least one element is true? Due to this ambiguity, R requires a single Boolean within the parentheses of an <code>if</code> statement. For example, the code below would throw an error. Do you see why?</p>
