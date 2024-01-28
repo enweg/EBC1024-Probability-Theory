@@ -1,0 +1,104 @@
+# Useful Data Structures
+
+<!-- R comes with many usefule data structures -->
+R has many useful data structures. Data structures are, in simple terms, just a collection of data. Different data structures store the data in different ways and, therefore, have different restrictions on what kind of data they can store. Vectors and matrices are two forms of data structures and fall under the broader category of arrays. A vector is nothing else than a one dimensional array, while a matrix is a two dimensional array. 
+
+<!-- vectors and matrices require elements to be of the same kind -->
+Arrays are a rather restrictive data structure, in the sense that R requires each element in an array to be of the same type. A type can be anything like a double (a real number), and integer, a boolean, or a string. Due to the restrictions that arrays impose, a vector storing both an integer and a string is not strictly possible. This, however, does not imply that R will throw an error below. Instead, R uses so-called type-promotion or type-conversion to convert one of the types into another. For example, a number can also be represented as a string (as text), and thus, the below code will convert the `1` to a string. 
+
+```{r}
+c(1, "a")
+```
+
+<!-- lists are another structure that does not require the same type -->
+Lists are a more flexible data structure than arrays. Lists come in two types: unnamed and named. We will first focus on the unnamed versions. A list can be created simply by calling `list` and providing it with elements. 
+
+
+```{r}
+l <- list(1, 2, 3, 4)
+l
+```
+
+Compare the output of the code above to the output you would get for the vector `c(1, 2, 3, 4)`. Clearly, lists and vectors are not the same. Lists are much more flexible than vectors/arrays. You can imagine lists as a collection of boxes, and each element in the comma separated list in parentheses above, gets put into a separate box. A specific box can then be accessed by simply indexing it like the arrays before.
+
+```{r}
+l[1]
+```
+
+Looking at the output, it still looks different to what we have seen before. R provides the handy `typeof` function to check what type an element has. Calling `typeof` on the first element in the list shows that the returned element is still a list. Thus, if we index lists like we index vectors or matrices, we get a list back, instead of the element inside the list. 
+
+```{r}
+typeof(l[1])
+```
+
+To obtain the element inside the list, we need to use double square brackets. The returned element is now a double (a real number) as expected. 
+
+```{r}
+l[[1]]
+```
+
+```{r}
+typeof(l[[1]])
+```
+
+One advantage of lists over arrays is the ability to store different type of data without the types being transformed. Thus, while we could not store a vector `c(1, "a")` without changing the double `1` to a string `"1"`, we can store the following list. 
+
+```{r}
+l <- list(1, "a", TRUE)
+l
+```
+
+The reason why lists can store different kind of elements comes back to the analogy above. While arrays are like a single box in which we store all elements, lists are like a collection of boxes. Each box can store just one type of data, but because we can use different boxes, we can store data of different types. 
+
+Lists can also be named. We will use this later on to package return values of a function. To name a list, we simply write `list(name = element)` with `name` and `element` being replaced by the actual names and elements. For example, we can store a number, letter, and boolean into a named list in the following way. 
+
+```{r}
+l <- list(number = 1, letter = "a", boolean = TRUE)
+l
+```
+
+This list can still be indexed like an unnamed list, but it can also be indexed using the names. To index a list using its names, we call `list$name` or `list[["name"]]`.
+
+```{r}
+l[[2]]
+```
+
+```{r}
+l$letter
+```
+
+
+```{r}
+l[["boolean"]]
+```
+
+<!-- also regularly used in econometrics are data frames -->
+
+While lists are much more flexible than arrays, they are still not optimal for econometrics. Econometrics is an empirical discipline and thus relies on data. Storing data in the form of lists is possible. However, manipulating the data in lists is tedious. Econometricians, therefore, much more often use so called data frames. Data frames are nothing but a table of data, with each column possibly being of a different data type. 
+
+Data frames can be created using `data.frame` and using a similar syntax to named lists. Different to named lists, the output is much cleaner and the data frame is easier to manipulate. 
+
+```{r}
+df <- data.frame(id = sample(letters, 10), grade = 1:10)
+df
+```
+
+A common data frame you might obtain for your concurrent macroeconomics class contains a column for the year, a column for GDP growth, a column for CPI growth, and a column for unemployment. Such a data frame might thus look like the following. 
+
+```{r}
+df <- data.frame(year = 1960:2024, GDP_growth = rnorm(65, mean=0.5), CPI_growth = rnorm(65), urate = runif(65, min = 3, max = 10))
+df
+```
+
+While this data frame is technically still considered small, it already becomes clear that the more rows a data frame has, the more difficult it is to get an overview of the data. Having functions that only print some of the rows of the data frame to the console is thus useful. R provides the `head` and `tail` functions, with the `head` function printing the first few rows, and the `tail` function printing the last few rows. 
+
+```{r}
+head(df)
+```
+
+```{r}
+tail(df)
+```
+
+Many more useful functions exist to work with data frames. We recommend you have a small search online. Data frames will be your trustworthy companion throughout the remainder of your studies and over time you will learn many useful manipulation techniques. 
+

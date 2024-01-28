@@ -1,2 +1,14 @@
 # Preface {.unnumbered}
 
+::: {.callout-note}
+# EBC1024 - Probability Theory
+The current notes are part of EBC1024 - Probability Theory at Maastricht University. For all course related content, please check the syllabus and the Canvas page. Information relating to Econometrics and Operations Research can be found on the [official website](https://curriculum.maastrichtuniversity.nl/education/bachelor/bachelor-econometrics-and-operations-research). 
+:::
+
+Probability theory is an integral part of your Econometrics and Operations Research education. Many problems you will encounter in other courses and in your future careers will rely on basic and sometimes more advanced probability concepts. We will, therefore, introduce you to the basics of probability theory in EBC1024. In the past, we focused on theory and applications that can be solved by hand. However, many modern problems cannot be solved by hand, and instead, they are solved via simulations. Additionally, probability can sometimes be dry and difficult to intuitively understand. For those two reasons, we decided to change things this year. Instead of only focusing on problems that can be solved by hand, we will also introduce computational methods. This, however, requires some basic knowledge in programming. The current notes will, therefore, introduce computational methods using the R programming language.
+
+Many other introductions to R have been written, most of them much more extensive than the current notes. We list a few of them below. We encourage everyone to check them out.
+
+- [An Introduction to R](https://intro2r.com)
+- [R for Data Science](https://r4ds.had.co.nz/index.html)
+- [Hands-On Programming with R](https://rstudio-education.github.io/hopr/)

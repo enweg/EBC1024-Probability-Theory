@@ -2,27 +2,22 @@ project:
   type: book
 
 book:
-  title: "A Computational Introduction to Probability Theory"
+  title: "A Short Introduction to R for Probability"
   author: "Enrico Wegner"
-  date: "9-17-2023"
+  date: "1-28-2024"
   chapters:
     - index.qmd
-    - part: "Part I"
-      chapters:
-      - introduction-to-r.qmd
-      - what-is-probability.qmd
-      - elements-of-probability.qmd
-      - sigma-algebras.qmd
-      - axioms-of-probability.qmd
-      - classical-probability.qmd
-      - calculus-of-probability.qmd
-      - conditional-probability.qmd
-      - independence.qmd
-      - random-variables.qmd
-      - transformations-random-variables.qmd
-      - moments.qmd
-      - common-distributions.qmd
-    - references.qmd
+    - 01-introduction.qmd
+    - 02-r-calculator.qmd
+    - 03-variables-indexing.qmd
+    - 03-02-structures.qmd
+    - 04-clean-code.qmd
+    - 05-loops.qmd
+    - 06-conditionals.qmd
+    - 07-functions.qmd
+    - 08-random-numbers.qmd
+    # - 09-monte-carlo-simulation.qmd
+    # - references.qmd
 
 bibliography: references.bib
 

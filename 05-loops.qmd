@@ -1,0 +1,90 @@
+# Loops
+
+<!-- Loops and conditional statements are what makes programming truly powerful. -->
+Loops and conditional statements are what makes programming truly powerful. Loops allow us to repeat something multiple times in a speed that we could never match if we had to do it by hand. Conditional statements, on the other hand, allow us to execute something only if a certain condition holds. Combining these two allows one to do pretty much anything. We will focus on loops first and will cover conditional statements next. 
+
+<!-- `for` and `while` loops are the most used loops -->
+There are two kinds of loops that are commonly used. The first, the `for` loop, is used when the number of iterations is known a priori. The second, the `while` loop, is used if the number of iterations is not a priori known. The `for` loop is specified using the `for` command, followed by a statement in parentheses. The statement in parentheses contains the looping variable, here `i`, and what the looping variable should loop over, here the numbers from `1` to `1000`. Thus, the loops is iterating `1000` times. The code that is executed in each iteration of the loop is enclosed in curly brackets. Some people like to start the curly brackets on a new line, while we prefer to start the curly brackets on the same line as the `for` command. In either case, the closing curly bracket is on a new line following the last command executed in each iteration. 
+
+To demonstrate the `for` loop, we use the sequence definition of the Euler number: 
+
+$$
+e = \lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n
+$$
+Using a `for` loop, we can obtain the first `1000` elements of this sequence and use them as approximations to $e$. 
+
+```{r}
+e_approximation <- c()
+for (i in 1:1000) {
+  e <- (1 + 1/i)^i
+  e_approximation <- c(e_approximation, e)
+}
+e_approximation[990:1000]
+```
+
+To check how good these approximations are, and to check how fast the sequence approaches the Euler number, we first need to know what the Euler number actually is. R comes with the $exp$ function which corresponds to $e^x$. Thus, `exp(1)` is the same as $e$ and equals
+
+```{r}
+exp(1)
+```
+
+The approximation error is then obtained by subtracting $e$, or equivalently `exp(1)`, from each sequency point and taking the absolute value. 
+
+```{r}
+e_approximation_error <- abs(e_approximation - exp(1))
+```
+
+To obtain the first and last ten values of the `e_approximation_error` vector, we use the `head` and `tail` functions respectively, and use the `n` argument to specify how many values we would like to be returned. As you can see, the last ten values are already correct up to the third decimal. 
+
+```{r}
+head(e_approximation_error, n = 10)
+```
+
+```{r}
+tail(e_approximation_error, n = 10)
+```
+
+<!-- Good practices also exist for loops. -->
+The for loop above specified within the statement in parentheses the number of iterations. This is bad practice since the number of iterations is often used in multiple places within the code. It is thus better to specify a variable that holds the number of iterations. A common variable name is `N` but sometimes a more explicit name is needed if `N` might be confusing in the context. Using `N <- 1e6`, we can obtain the first one million elements of the sequence definition of the Euler number. The last ten elements of this sequence are almost equal to the Euler number, at least to a precision that would be enough for most real world applications. 
+
+```{r}
+N <- 1e6
+e_approximation_error <- matrix(nrow = N, ncol = 2)
+colnames(e_approximation_error) <- c("i", "e_approximation")
+for (i in 1:N){
+  e <- (1 + 1/i)^i
+  e_approximation_error[i, ] <- c(i, abs(e - exp(1)))
+}
+```
+
+```{r}
+head(e_approximation_error, n = 10)
+```
+```{r}
+tail(e_approximation_error, n = 10)
+```
+
+<!-- A while loop is used when the number of iterators is not a priori known. -->
+What if we do not want to know the approximation error of the first `N` elements of the sequence, but rather would like to know when the sequency is within a pre-specified distance of the Euler number. In this case, the number of iterations is not a priori known. We therefore need to use a `while` loop. A `while` loop executes the code within curly brackets until the statement in parentheses is false. This requires one to update the variables that are used in the statement within parentheses, because otherwise the statement in parentheses will always be true and the `while` loop will run for ever; a so-called infinite loop. Care must therefore be taken when working with `while` loops. 
+
+Although conditions are only covered in the next section, we use one here. The statement in parentheses reads `abs(e - exp(1)) > 1e-4`. This statement is true whenever the absolute distance between the variable `e` and `exp(1)` is greater than `0.0001`. Thus, it is only false when the approximation is correct to the fourth decimal. To make sure that this statement is false at some point, we need to update the variable `e` within the `while` loop.
+
+```{r}
+i <- 1
+e <- (1 + 1/i)^i
+while (abs(e - exp(1)) > 1e-4) {
+  i <- i + 1
+  e <- (1 + 1/i)^i
+}
+i
+```
+
+```{r}
+abs(e - exp(1))
+```
+
+Since we defined `i` and `e` already outside the `while` loop, we can also access their values after the `while` loop has stopped. The sequence is therefore within `1e-4` of the Euler number after element
+
+```{r}
+i
+```

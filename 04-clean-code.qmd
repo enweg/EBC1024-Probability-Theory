@@ -1,0 +1,80 @@
+# Commenting and clean code
+
+<!-- Clean code is important. -->
+**Clean code is important**. This is a statement we already made previously but one that we wish to emphasise again. Clean code allows others to easily follow your code and allows yourself to understand your code even after an extended time of not working on it. Clean code is, therefore, the first step in making code and research replicable. The first step towards clean code is to use descriptive variable names. Compare, for example, the two code snippets below. The first one is a copy of a previous one and gives a descriptive name to the selector variable. The second snippet gives the selector the often chosen name `temp`. Although tempting, `temp` is **not** an appropriate name for a variable, which you should see by noticing that the first snippet is much easier to understand than the second snippet.
+
+```{r}
+x <- 1:100
+x_even_selector <- x %% 2 == 0
+x[x_even_selector]
+```
+
+```{r}
+x <- 1:100
+temp <- x %% 2 == 0
+x[temp]
+```
+
+<!-- R allows to add comments in each line. -->
+Descriptive variable names are only the first step towards clean and understandable code. If variable names cannot reflect sufficient information, then comments should be used. Comments can be added after a code line by separating the comment from the code using two spaces. A comment in R starts with `#` and everything after `#` will not be executed - it is simply a short note from the programmer to the reader of the code, which might be the programmer itself. 
+
+```{r}
+x <- 1:100
+x_even_selector <- x %% 2 == 0  # Checking if the number is even
+x[x_even_selector]
+```
+
+Although comments are recommended, it is bad practice to comment each line of code. If you have to comment each line of code, then your code is bad. So technically the comment above is not necessary since the variable name is descriptive enough. 
+
+<!-- A much more often strategy is to add a comment in a separate line. -->
+Instead of adding comments after a line of code, comments are much more often added before a line of code. In scripts, these comments often explain what the following lines of code are doing. We generally recommend writing functions, having as little as possible code outside of functions. Functions are covered in a later section. 
+
+```{r}
+# Selecting the even integers within the first 100 integers.
+x <- 1:100
+x_even_selector <- x %% 2 == 0
+x[x_even_selector]
+```
+
+<!-- Be contious about your comments. -->
+When using comments, think about what is needed to understand the code. If you have some weird calculation going on, explain the calculation. If you have some condional statement that is not immediately clear, explain it. But do not overdo it. Do not write a comment like `# dividing by 100`. We can see that you are doing it. What we might be interested in is why you are dividing by 100. 
+
+<!-- Splitting long and complicted code also helps the understanding. -->
+Another helpful strategy to make code cleaner is to split long lines. In general, code lines should not be too long and most programmers will aim to keep code lines less than 80 characters long. The reason for this is that long code lines are often difficult to read and occasionally require a horizontal scroll, which might not be immediately clear to the person that is reading the code. For example, consider a problem in which you need to make the following long calculation.
+
+```{r}
+1 + 123 * 1591 / 1298575 - 124 + 1294 * 19275 / 193587 - 129875 + 19257 * 1957 + 1957135 - 195715 + 195875 / 15975 * 1575 / 1957125 * 135105 + 197515 / 1957135
+```
+
+<!-- Code can be split over multiple lines and comments can be added to each line. -->
+Clearly the long calculation above is difficult to understand. Why are you dividing at one point and multiplying at another? Long calculations such as the ones above are usually a result from merging multiple calculations together. Thus, the first strategy to make it more readable is to split the code over multiple lines as is shown below. This also gives you the ability to comment each line of code and therfore to explain why you divide at one point but multiply at another. 
+
+```{r}
+1 + 
+  123 * 1591 / 1298575 - 
+  124 +  # Each of these lines can contain a comment 
+  1294 * 19275 / 193587 - 
+  129875 + 
+  19257 * 1957 + 
+  1957135 - 
+  195715 + 
+  195875 / 15975 * 1575 / 1957125 * 135105 + 
+  197515 / 1957135
+```
+
+<!-- Better, save intermediate calculations to a variable and combine the calculations at the end.  -->
+Although the above is a possible solutions, it is still not clean code. Clean code would instead split the calculation into parts and save each part in a variable with a descriptive name. *Yes, we failed to give the variables a descriptive name, but in your calculation, each step should mean something so you should be able to give them descriptive names*. The sub-calculations can then be all merged together and saved in a variable holding the final result. Also this variable should have a descriptive name that follows from the calculation you are doing. For example, if you are calculating the expected value of a European option, then the name of the final variable could be `european_option_value` or simply `value` if it is clear from the code above that it is the European option value. 
+
+```{r}
+calculation_part1 <- 1 + 123 * 1591 / 1298575 
+calculation_part2 <- -124 + 1294 * 19275 / 193587 
+calculation_part3 <- -129875 + 19257 * 1957 + 1957135 
+calculation_part4 <- -195715 + 195875 / 15975 * 1575 / 
+  1957125 * 135105 + 197515 / 1957135
+
+final_result <- calculation_part1 +
+  calculation_part2 + 
+  calculation_part3 + 
+  calculation_part4
+final_result
+```

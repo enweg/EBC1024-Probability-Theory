@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Enrico Wegner">
-<meta name="dcterms.date" content="2024-01-28">
 
-<title>A Short Introduction to R for Probability</title>
+<title>A Short Introduction to R for Probability - 1&nbsp; Introduction to R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-introduction.html" rel="next">
+<link href="./02-r-calculator.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -102,13 +101,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
   </div>
 </li>
@@ -160,12 +159,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -176,7 +169,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#why-learn-r" id="toc-why-learn-r" class="nav-link active" data-scroll-target="#why-learn-r"><span class="header-section-number">1.1</span> Why learn R?</a></li>
+  <li><a href="#installing-r-and-r-studio" id="toc-installing-r-and-r-studio" class="nav-link" data-scroll-target="#installing-r-and-r-studio"><span class="header-section-number">1.2</span> Installing R and R Studio</a></li>
   </ul>
 </nav>
     </div>
@@ -185,26 +179,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A Short Introduction to R for Probability</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Enrico Wegner </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 28, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -212,28 +194,31 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="why-learn-r" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="why-learn-r"><span class="header-section-number">1.1</span> Why learn R?</h2>
+<!-- R is probably the most used programming language in econometric research -->
+<p>In these notes, we will focus on the R programming language. R is probably the most used programming language in econometric research, and probably the second most used language in data science, data analytics, and related jobs. Thus, learning R does not just allow you to gain a better understanding of what you will learn during this course, but also gives a skill that is directly valued in the industry.</p>
+<!-- We don't just learn a programming language. We learn a way to think. -->
+<p>Some of you might wonder why we do not teach Python since it seems to be the most famous programming language. This is simply due to the fact that most research in econometrics and most econometric theory is still first implemented in R. Additionally, R will be your trustworthy companion throughout the rest of your studies. Lastly, we do not teach you R just so that you are able to code in R. Instead, we hope you take away a special kind of thinking that applies to coding in general. Learning how to code is not just about learning the syntax of a programming language; it is about learning how to think in a very specific way. Once you are able to think like a coder, you will quickly be able to learn any programming language, including Python. This kind of thinking will be further strengthened in EBC2016.</p>
+<!-- R is powerful and we will have to focus on what we learn -->
+<p>Almost all programming languages, including R, are what is called Turing complete. This means, given enough time and memory, they can solve any computational problem. This also means that there are a lot of things one could do with a programming language, which necessarily comes with a lot of things that one could learn. We will, therefore, not be able to teach you all about coding and R, but instead will focus on what is necessary in probability theory and econometrics in general. We will, therefore, mostly focus on how to do mathematics, how to simulate, and how to communicate results. Later courses in the Econometrics and Operations Research bachelor will teach you some more programming related to data science and operations research, and what you will learn here will hopefully form a good basis for these future courses.</p>
+</section>
+<section id="installing-r-and-r-studio" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="installing-r-and-r-studio"><span class="header-section-number">1.2</span> Installing R and R Studio</h2>
+<!-- Most people use R together with the great development environment R Studio -->
+<p>Most people use R together with the great development environment R Studio. We therefore recommend that you install both. R can be downloaded from the <a href="https://www.r-project.org">r-project</a> and we recommend that you follow the instructions for installation given there. R Studio can be downloaded from <a href="https://posit.co/downloads/">Posit</a>. Note that the name Posit is relatively new and until recently the company was still called R Studio - so like the development environment itself.</p>
+<!-- Do not work in the console -->
+<p>After opening R Studio, you should see a window like in <a href="#fig-rstudio-window">Figure&nbsp;<span>1.1</span></a> except that yours is likely still in light mode. On the left-hand-side is the <em>console</em>, while the two panes on the right-hand-side show you a history of the last commands, and the current environment. The current environment shows you all the variables that are currently available in your environment. This should be empty when you first start R Studio. We will cover in <a href="03-variables-indexing.html"><span>Chapter&nbsp;3</span></a> what variables are and how you can use them. The console, on the other hand, is where we can write commands that are immediately executed after pressing enter. We do not recommend that you work in the console unless you just want to test something. Instead, we recommend you always work in an R-script. You can open a new R-script by pressing <em>File</em> &gt;&gt; <em>New File</em> &gt;&gt; <em>R Script</em>.</p>
+<div class="cell caption-bottom">
+<div class="cell-output-display">
+<div id="fig-rstudio-window" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/r-studio-window.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.1: Screenshot of the R Studio window with the console on the left and the history and environment on the right.</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-EBC1024 - Probability Theory
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>The current notes are part of EBC1024 - Probability Theory at Maastricht University. For all course related content, please check the syllabus and the Canvas page. Information relating to Econometrics and Operations Research can be found on the <a href="https://curriculum.maastrichtuniversity.nl/education/bachelor/bachelor-econometrics-and-operations-research">official website</a>.</p>
-</div>
-</div>
-<p>Probability theory is an integral part of your Econometrics and Operations Research education. Many problems you will encounter in other courses and in your future careers will rely on basic and sometimes more advanced probability concepts. We will, therefore, introduce you to the basics of probability theory in EBC1024. In the past, we focused on theory and applications that can be solved by hand. However, many modern problems cannot be solved by hand, and instead, they are solved via simulations. Additionally, probability can sometimes be dry and difficult to intuitively understand. For those two reasons, we decided to change things this year. Instead of only focusing on problems that can be solved by hand, we will also introduce computational methods. This, however, requires some basic knowledge in programming. The current notes will, therefore, introduce computational methods using the R programming language.</p>
-<p>Many other introductions to R have been written, most of them much more extensive than the current notes. We list a few of them below. We encourage everyone to check them out.</p>
-<ul>
-<li><a href="https://intro2r.com">An Introduction to R</a></li>
-<li><a href="https://r4ds.had.co.nz/index.html">R for Data Science</a></li>
-<li><a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a></li>
-</ul>
 
 
 </section>
@@ -474,10 +459,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-introduction.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-r-calculator.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R as a calculator</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

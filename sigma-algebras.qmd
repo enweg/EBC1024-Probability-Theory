@@ -1,9 +1,0 @@
-# Information and $\sigma$-algebras
-
-## The problem
-
-## Defintion of $\sigma$-algebra
-
-## The Borel $\sigma$-algebra
-
-## Information and $\sigma$-algebras

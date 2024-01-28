@@ -1,9 +1,0 @@
-# Elements of probability
-
-## Sample space
-
-## Events
-
-## Probability function
-
-## Why not assign probability to outcomes? 

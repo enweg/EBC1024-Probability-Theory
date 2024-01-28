@@ -1,0 +1,160 @@
+# Conditionals
+
+<!-- Conditionals are the other powerful programming concepts -->
+We introduced loops in the previous sections. This section will introduce the other powerful concept in programming: conditionals. Conditionals, as the name hints at, allow to execute code only if a condition is true. For example, if we would like to execute code only when the random $\text{Uniform}(0, 1)$ variable is less than 0.5, then the code within the conditional will only execute with a probability of 50%. Conditionals therefore allow us to split our code into sections each of which will only be executed if a pre-specified condition is true. 
+
+<!-- R has various conditional operators -->
+A condition in R connects a left-hand-side with a right-hand-side by using one of the following operators: 
+
+- `==`: True if and only if the value on the left-hand-side equals the value on the right-hand-side.
+- `>`: True if and only if the value on the left-hand-side is greater than the value on the right-hand-side.
+- `>=`: True if and only if the value on the left-hand-side is greater or equal to the value on the right-hand-side.
+- `<`: True if and only if the value on the left-hand-side is less than the value on the right-hand-side.
+- `<=`: True if and only if the value on the left-hand-side is less or equal to the value on the right-hand-side.
+- `!=`: True if and only if the value on the left-hand-side is not equal to the value on the right-hand-side.
+- `!x`: True if and only if x is `FALSE`.
+- `||`: True if and only if either the left-hand-side is true, or the right-hand-side is true, or both are true. **Not vectorised**.
+- `|`: True if and only if either the left-hand-side is true, or the right-hand-side is true, or both are true. Operates element-wise on arrays. 
+- `&&`: True if and only if both the left-hand-side and the right-hand-side are true. **Not vectorised**.
+- `&`: True if and only if both the value on the left-hand-side and the value on the right-hand-side are true. Operates element-wise on arrays.
+
+<!-- Simple if conditional -->
+When stating a conditional in natural language, we often use 'if' to denote that what we are talking about is a conditional. Similarly, we can use `if` in R to denote that the code in the following curly brackets should only be executed if the conditional statement within parentheses is true. Take the example below. The conditional in parentheses is testing whether `x` is less than eleven. Only if this is the case, will we see `x < 11` printed out. Test this out by changing `x` to some other value that violates the condition in parentheses. 
+
+```{r}
+x <- 10
+if (x < 11) {
+  print(paste(x, "< 11"))
+}
+```
+
+<!-- if-else conditional -->
+While `if` statements are nice, what would we do if we want an 'else' or 'otherwise'? In natural language we often connect 'if' with an 'else' or 'otherwise' to communicate that if the condition is not true, then something else will happen. For example, this years INKOM had options for both rainy and non-rainy days which would be translated as: "If it is raining, we meet in the MAC, else we meet in the park.". 'Else' statements are powerful and thus also a part of programming. Just as an 'if' statement can be implemented using `if`, an 'else' can be implemented using `else`. Extending the example above, we can now also provide some text if `x` is not less than eleven. Try out what happens when you change `x` to some other number. 
+
+```{r}
+x <- 11
+if (x < 11) {
+  print(paste(x, "< 11"))
+} else {
+  print(paste(x, ">= 11"))   
+}
+```
+
+<!-- if-elseif-else conditional -->
+Although we strongly suggest to stick to `if` and `else`, sometimes there is no way around futher complicating the code by using `else if`. `else if` is like an additional check. If the first `if` or a previous `else if` did not execute, then the condition within the parentheses in the current `else if` will be checked and the code in curly brackets will be executed if the condition is true.
+
+```{r}
+x <- 13
+if (x < 11) {
+  print(paste(x, "< 11"))
+} else if (x == 11) {
+  print(paste(x, "= 11"))
+} else {
+  print(paste(x, "> 11"))
+}
+```
+
+We do not recommend the use of `else if` statements, because they quickly become complex and often better methods exist. Consider the example below. We could have continued in this way for ever, but usually there are better methods to do such comparisons. Throughout these notes, you are likely to find some of these better methods and we will try to point them out when they show up. 
+
+```{r}
+x <- 13
+if (x == 1) {
+  print(paste(x, "= 1"))
+} else if (x == 2) {
+  print(paste(x, "= 2"))
+} else if (x == 3) {
+  print(paste(x, "= 3"))
+} else if (x == 4) {
+  print(paste(x, "= 4"))
+} else if (x == 5) {
+  print(paste(x, "= 5"))
+} else if (x == 6) {
+  print(paste(x, "= 6"))
+} else if (x == 7) {
+  print(paste(x, "= 7"))
+} else if (x == 8) {
+  print(paste(x, "= 8"))
+}
+```
+
+<!-- Conditionals can also be used to index into arrays -->
+We have already shown in a previous section that Booleans can be used to index into an array. Since conditionals, except `&&` and `||`, all operate element-wise, we can also apply a logical operator to a vector which will return a Boolean vector of the same length. So, if we want to filter a vector for values that are less than `-0.9`, then all we need to do is to write `x[x < -0.9]`. The condition inside the square brackets will return a Boolean vector that has `TRUE` at a position if and only if the corresponding element in `x` is less than `-0.9`, and thus the indexing will only return such values.
+
+```{r}
+# logical operators work element-wise
+x <- 1:10
+x > 5
+```
+
+```{r}
+N <- 1000
+x <- runif(N, min = -1, max = 1)
+x[x < -0.9]
+```
+
+<!-- Conditionals can be used to find the proportion of observations satisfying a condition -->
+The element-wise operation of logical operators can also be used to calculate proportions, probabilities, and counts. For example, we could approximate the probability that `x < -0.9` if $x \sim \text{Uniform}(-1, 1)$. You will learn throughout the course what this statement means, but the theoretical answer would be $0.05$, so 5%. The simulated answer, using `N` draws comes close to this, and the larger you choose `N`, the closer will the simulated answer be to the theoretical answer. The `sum` in the code below sums up all elements in the vector given to it. Since we are giving it a Boolean vector (because we have a logical operator applied to a vector), we are summing over Booleans. A `TRUE` is represented by a `1`, while a `FALSE` is represented by a `0`. Thus, the sum will return the number of elements in `x` that are less than `-0.9`. Dividing by `N` will then give the proportion which is approximately equal to the theoretical probability. 
+
+```{r}
+N <- 1000
+x <- runif(N, min = -1, max = 1)  # drawing N Uniform(-1, 1) numbers
+probability <- sum(x < -0.9) / N
+probability
+```
+
+Care must be taken when applying logical operators to a vector and using the result in an `if` statement. Since the logical operator works elementwise, the conditional will return a vector. It is then not clear what this should mean for the `if` statement. Should the `if` statement be evaluated once per element in the vector? Only if all are true? Only if at least one element is true? Due to this ambiguity, R requires a single Boolean within the parentheses of an `if` statement. For example, the code below would throw an error. Do you see why? 
+
+```{r}
+#| eval: false
+
+# Throws the following error: 
+# Error in if (x > 5) { : the condition has length > 1
+
+x <- 1:10
+if (x > 5) {
+  print(paste(x, "> 5"))
+}
+```
+
+Since R requires a single Boolean within the parentheses of an `if` statement, we need some way to summarise the information in a vector of Booleans. For example, if we would like to return `TRUE` if and only if all elements in the Boolean vector are true, then we can use the `all` function, which takes a Boolean vector and returns `TRUE` if and only if all elements are `TRUE`.
+
+```{r}
+x <- 1:10
+all(x > 5)
+```
+
+Sometimes we wish to execute an `if` statement as long as at least one element in the Boolean vector is `TRUE`. We can look ahead a bit and use a custom function to return `TRUE` if and only if at least one element in the Boolean vector is `TRUE`. We will discuss functions in more detail in the next section. Here, just note, that within the curly brackets after the `function` statement, it says `return(sum(condition) >= 1)` so the function returns `sum(condition) >= 1` which is `TRUE` if and only if the sum over all Booleans in the Boolean vector is at least one. Since `TRUE==1` and `FALSE==0`, this is only the case if at least one `TRUE` is in the Boolean vector. 
+
+```{r}
+at_least_one <- function(condition) {
+  return(sum(condition) >= 1)
+}
+
+x <- 1:10
+at_least_one(x > 5)
+```
+
+<!-- Conditionals can be connected with 'and' and 'or' and can be negated using 'not' -->
+Conditionals become very powerful when they are connected together or negated. In natural language we often use 'and', 'or', and 'not'. Similarly, in R we can use `&&` and `&` for an 'and', `||` and `|` for an 'or', and `!` for a 'not'. The code below showcases each of them. Can you spot why the `||` will always be true? 
+
+```{r}
+x <- 10
+if ((x < 15) && (x > 5)) {
+  print(paste("5 <", x, "< 15"))
+}
+```
+
+```{r}
+x <- 10
+if ((x > 5) || (x < 15)) {
+  print("I am always true, why?")
+}
+```
+
+```{r}
+x <- 10
+if (!(x > 5)) { 
+  print(paste(x, "<= 5"))
+}
+```
+

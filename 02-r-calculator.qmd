@@ -1,0 +1,169 @@
+# R as a calculator
+
+::: {.callout-note}
+We recommend that you open a new R Script for this section and follow along as you read. Programming is not something that can be learned by just reading about it. You really have to try things and experiment with them. So feel free to change things around and see what happens.
+:::
+
+<!-- R can be used like any other calculator -->
+R is what is called an interpreted programming language. Contrary to compiled programming languages, interpreted programming languages can be used interactively. Thus, upon opening a new R script, and writing something in a line, it can be immediately executed by pressing `CMD + ENTER`. R can thus be used as a calculator like any other calculator. For example, we can do simple addition by typing the following into a line and executing it.
+
+```{r}
+1 + 1
+```
+
+What you see in grey above is the code that we are talking about. Here, we asked you to calculate `1+1`, which I hope everyone knows is equal to two. This result is given immediately below the code above. The structure above will be generally followed throughout these notes, with a few exceptions. If code would throw an error, meaning that it is broken and something is wrong with it, we will generally not provide any code output. Other exceptions will be made explicitly clear when they occur. 
+
+R can obviously not just do addition. Any operation that you would be able to do on a standard calculator can also be done in R. The code cells below show how subtraction, `-`, division, `/`, and multiplication, `*`, are performed. 
+
+```{r}
+11 - 3
+```
+
+```{r}
+1 / 3
+```
+
+```{r}
+55 * 1234
+```
+
+<!-- The order of operation is not always clear -->
+The order in which R executes operations is not always clear. For example, the following became famous online because people either argue that the solution is `1` or that the solution is `16`. Technically both is correct since it depends on the precendence of `*` over `/` or the other way around, and no unique standard has been formed regarding this precedence. R indeed puts both `/` and `*` on the [same precendence order](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html) but makes clear that in case of two operators within the same precendence order, operations will be performed from left to right. Thus, as is shown below, the result R provides is equal to `16`.
+
+```{r}
+8 / 2 * (2 + 2)
+```
+
+<!-- Clearly specifying the order of operations is good practice. -->
+Clearly, specifying the order of operations is important, and although R has a standard, it might not be clear to everyone. Thus, it is good practice to explicitly show in which order operations are performed by using parantheses, as shown below. The parentheses below indicate that we want the multiplication to be performed before the division, which results in the second often argued for answer of `1`. 
+
+```{r}
+8 / (2 * (2 + 2))
+```
+
+<!-- R can also be used as a matrix values calculator -->
+Although we will largely focus on scalar operations in the first part of these notes and the course, scalar operations are not ideal for some problems. You should have seen in Linear Algebra, that working with vectors and matrices often comes with advantages. R can be used with matrices and vectors. Indeed, all numerical values are technically vectors in R, even what we would usually call a scalar. 
+
+To create a matrix in R, we call our first function. The function takes arguments, which are the things that we provide, and returns a result. The function `matrix` takes as its first argument a list of numbers, `c(1, 2, 3, 4)`. Vectors and lists of numbers always start with `c(...)` in R. The list of numbers are the numbers of the matrix. Additionally, we need to provide the dimensions of the matrix; two rows and two columns are chosen here. The list of numbers must contain as many numbers as the matrix has entries. 
+
+```{r}
+# R is column major and thus fills columns before filling rows
+matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+```
+
+
+<!-- R is column major. -->
+The matrix returned by R has as its first column `c(1, 2)` and as its second column `c(3, 4)`. This might not be immediately what you expected. Many expect the numbers to be filled row-wise. R uses *column-major* order though, which means that R stores matrices as a long list of numbers with consecutive numbers corresponding to consecutive entries in a column of the matrix, unless the first number is the last entry in the column, in which case the next number will be the first entry in the next column. In simple terms, this means that R will always fill columns first unless specified otherwise. We can specify that we want the rows to be filled first by adding the additional argument `byrow = TRUE`. 
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2, byrow = TRUE)
+```
+
+<!-- Sometimes, arguments can be left out. -->
+As you might have noticed, the first time we created a matrix, we did not specify the argument `byrow`. Functions often allow user to specify only a few arguments, with the remaining arguments either having default values or being derived using the provided arguments. For example, given the list of numbers has four values, it suffices to provide the `nrow = 2` argument, therefore specifying that the resulting matrix must have two rows, which directly implies that the matrix must have two columns.
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2)
+```
+
+To see which arguments a function takes and which arguments are necessary, you can always consult the help. The easiest way to do so it to type `?function_name` into the console, where `function_name` should be replaced with the actual function name. For example, to get information and help for the `matrix` function, type 
+
+```{r}
+?matrix
+```
+
+::: {.callout-tip}
+# Using Large Language Models
+
+Assuming that you will not use any Large Language Models (LLMs) would be foolish and forcing you to not use them would mean we stop you from learning a skill that might be invaluable in your future career. We therefore would like to point out that Large Language Models can often help when programming, but their output should not be blindly trusted. For example, in our experience, some of the LLMs will tell you that both the `nrow` and `ncol` arguments are necessary. This is clearly not the case. Additionally, while LLMs can be helpful, they can also be a curse. Overly relying on them often implies that you will learn less which eventually implies that you will have trouble in later sections and courses that work on problems that are notoriously difficult for LLMs. In any case, if you do end up using LLMs, always report it and do not just compy the code.  
+
+:::
+
+<!-- Using * does not do what one might expect. -->
+Now that you know how to create a matrix, we can also perform mathematical operations between matrices and vectors. The first is to use the `*` operator on two matrices. The `*` applied to scalars multiplies these scalars. Thus, it is only natural to think that `*` applied to two matrices will multiply these two matrices. As you see below, this is indeed what is does. **However, it does not matrix-multiply the two matrices**. Instead, it multiplies them element-wise. 
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2) * matrix(c(1, 2, 3, 4), nrow = 2)
+```
+
+<!-- R uses the special `%*%` operator for matrix multiplication. -->
+For matrix-multiplication, R uses the `%*%` operator between two matrices, two vectors, or a vector and a matrix. The functionality of `%*%` exactly follows the rules you learned in Linear Algebra. 
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2) %*% matrix(c(1, 2, 3, 4), nrow = 2)
+```
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2) %*% c(5, 6)
+```
+
+<!-- Care must be taken when using elementwise multiplication of a matrix and a vector. -->
+Sometimes we do want to use the element-wise multiplication. In those cases, it is helpful to know how element-wise multiplication works for two arrays (matrices and vectors) that are of different sizes and dimensions. When multiplying a matrix with a vector that has the same length as the total number of elements in the matrix, R will take the vector an element-by-element multiply the element in the matrix with the element in the vector. The order here is again column-major, implying that the first element of the vector is multiplied with the first element in the first column of the matrix, the second element in the vector is multiplied with the second element in the first column of the matrix, and so on.
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2) * c(1, 2, 3, 4)
+```
+
+<!-- Shorter vectors are recycled and are treated as columns of a matrix. -->
+If the vector has fewer elements than the total number of entries in the matrix, but the total number of elements in the matrix is a multiple of the vector length, then the vector will be recycled. That means, that the multiplication will be performed as above. If the last element of the vector was used, the next entry in the matrix will be multiplied with the first element in the vector again. Thus, R loops through the vector until all entries in the matrix have been multiplied with some element in the vector. 
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2) * c(1, 2)
+```
+
+<!-- However, even vectors that cannot be completely recycled lead to a calculation output. -->
+However, if the vector length is not a multiple of the total number of elements in the vector, either a warning is thrown, or the calculation is throwing an error. In general, if a warning as below occurs, something is likely wrong in your code and you should not trust the result unless you double checked that everything is correct. 
+
+```{r}
+matrix(c(1, 2, 3, 4), nrow = 2) * c(1, 2, 3)
+```
+
+<!-- If the vector is too long, no output is given anymore. -->
+
+```{r}
+#| eval: false
+# This will throw an error.
+matrix(c(1, 2, 3, 4), nrow = 2) * c(1, 2, 3, 4, 5)
+```
+
+<!-- Pointwise multiplication from the left is the same as from the right. -->
+
+All the rules above for point-wise multiplication also apply to point-wise multiplication from the left. 
+
+```{r}
+c(1, 2, 3, 4) * matrix(c(1, 2, 3, 4), nrow = 2)
+```
+
+```{r}
+c(1, 2) * matrix(c(1, 2, 3, 4), nrow = 2)
+```
+
+In more general, they apply to any point-wise multiplication betwen two arrays, no matter their dimension. Thus, when point-wise multiplying two vectors of different lengths, similar rules to the ones above apply. 
+
+<!-- Taking the inverse of a matrix --> 
+R also allows for other operations on matrices. For example, a common operation is to take the inverse of a matrix, or to solve a linear system. R provides the ``solve`` function for this purpose. Calling `solve` on a single matrix will return the inverse of the matrix. This is shown below. 
+
+
+```{r}
+m <- matrix(c(1, 3, 2, 4), nrow = 2)
+m_inverse <- solve(m)
+m_inverse %*% m
+```
+
+As you can see, multiplying the inverse time the original matrix does not provide the exact identity matrix. This is a common problem in computational methods. Computations are only approximately correct. However, the accuracy of common operations in R is sufficient for most work and definitely sufficient for the problems we will be tackling in this course. 
+
+R also provides an alternative way to call `solve`. Inverse matrices are often taken to solve a system of linear equations. For example, say we would like to solve the system $Ax = b$. The method you have likely learned is to find the inverse of $A$, $A^{-1}$ and to pre-multiply both the left- and right-hand-side by this inverse: $A^{-1}Ax = A^{-1}b = x$. This could be implemented in R, however, a more accurate solution can be obtained by directly solving this linear system. To do so, we call ``solve`` with two arguments. The first is the matrix $A$ (the LHS) and the second is the vector $b$ (the RHS). 
+
+
+```{r}
+A <- matrix(c(1, 5, 2, 4), nrow = 2)
+b <- c(1, 1)
+x <- solve(A, b)
+x
+```
+
+```{r}
+A_inverse <- solve(A)
+x <- A_inverse %*% b
+x
+```
