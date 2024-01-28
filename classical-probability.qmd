@@ -1,0 +1,13 @@
+# Counting and classical probability
+
+## Multiplicative rule
+
+## Sampling in order with replacement
+
+## Sampling in order without replacement
+
+## Permutations
+
+## Combinations
+
+## Summary

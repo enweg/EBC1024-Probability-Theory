@@ -1,0 +1,9 @@
+# What is probability? 
+
+## Interpreting probability
+
+### Fequency interpretation
+
+### Byesian interpretation
+
+### Classical interpretation

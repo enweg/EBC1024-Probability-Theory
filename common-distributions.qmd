@@ -1,0 +1,29 @@
+# Common (families of) distributions
+
+## The kernel of a distribution
+
+## Exponential families
+
+## Location scale families
+
+## Discrete Uniform
+
+## Binomial
+
+## Poisson
+
+## Geometric
+
+## Hypergeometric
+
+## Uniform
+
+## Beta
+
+## Exponential
+
+## Gamma
+
+## Normal
+
+## Cauchy

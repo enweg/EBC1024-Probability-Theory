@@ -1,0 +1,13 @@
+# Moments
+
+## Expectation
+
+## Variance
+
+## Skew
+
+## Kurtosis
+
+## Higher moments
+
+## Moment generating function

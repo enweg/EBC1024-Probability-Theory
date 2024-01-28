@@ -1,0 +1,9 @@
+# Independence
+
+## Extra information is worthless
+
+## Independence of events
+
+## Independence of $\sigma$-algebras
+
+## Joint and pairwise independence

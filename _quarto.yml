@@ -1,0 +1,36 @@
+project:
+  type: book
+
+book:
+  title: "A Computational Introduction to Probability Theory"
+  author: "Enrico Wegner"
+  date: "9-17-2023"
+  chapters:
+    - index.qmd
+    - part: "Part I"
+      chapters:
+      - introduction-to-r.qmd
+      - what-is-probability.qmd
+      - elements-of-probability.qmd
+      - sigma-algebras.qmd
+      - axioms-of-probability.qmd
+      - classical-probability.qmd
+      - calculus-of-probability.qmd
+      - conditional-probability.qmd
+      - independence.qmd
+      - random-variables.qmd
+      - transformations-random-variables.qmd
+      - moments.qmd
+      - common-distributions.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

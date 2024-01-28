@@ -1,0 +1,17 @@
+# Transformations of rando variables
+
+## Why are transformations so common? 
+
+## CDF of transformed variable
+
+## PDF/PMF of transformed variable
+
+## Non-monotone transformations
+
+## Examples
+
+### Stock price model
+
+### Stock options model
+
+### Random number generation
