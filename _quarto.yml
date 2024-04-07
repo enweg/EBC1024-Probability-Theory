@@ -7,15 +7,17 @@ book:
   date: "1-28-2024"
   chapters:
     - index.qmd
-    - 01-introduction.qmd
-    - 02-r-calculator.qmd
-    - 03-variables-indexing.qmd
-    - 03-02-structures.qmd
-    - 04-clean-code.qmd
-    - 05-loops.qmd
-    - 06-conditionals.qmd
-    - 07-functions.qmd
-    - 08-random-numbers.qmd
+    - part: 01-introduction/01-introduction.qmd
+      chapters:
+        # - 01-introduction/01-introduction.qmd
+        - 01-introduction/02-r-calculator.qmd
+        - 01-introduction/03-variables-indexing.qmd
+        - 01-introduction/03-02-structures.qmd
+        - 01-introduction/04-clean-code.qmd
+        - 01-introduction/05-loops.qmd
+        - 01-introduction/06-conditionals.qmd
+        - 01-introduction/07-functions.qmd
+        - 01-introduction/08-random-numbers.qmd
     # - 09-monte-carlo-simulation.qmd
     # - references.qmd
 

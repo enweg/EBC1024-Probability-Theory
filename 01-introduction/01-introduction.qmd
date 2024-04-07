@@ -26,6 +26,6 @@ After opening R Studio, you should see a window like in @fig-rstudio-window exce
 #| cap-location: bottom
 #| fig-cap: Screenshot of the R Studio window with the console on the left and the history and environment on the right. 
 
-knitr::include_graphics("figures/r-studio-window.png")
+knitr::include_graphics("../figures/r-studio-window.png")
 ```
 
