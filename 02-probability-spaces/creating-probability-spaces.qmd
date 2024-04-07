@@ -1,0 +1,129 @@
+
+
+```{r}
+create_probability_space <- function(..., repeats = 1) {
+  stopifnot(repeats >= 1)
+
+  if (any(names(list(...)) == "prob")) {
+    stop("'prob' is a protected name. Please use another name.")
+  }
+  if (any(names(list(...)) == "repeats")) {
+    stop("'repeats' is a protected name. Please use another name.")
+  }
+
+  if (repeats == 1) {
+    df <- do.call(expand.grid, list(...))
+    df[, "prob"] <- 1 / nrow(df)
+    return(df)
+  }
+
+  l <- list()
+  for (r in 1:repeats) {
+    l_tmp <- list(...)
+    names(l_tmp) <- paste0(names(l_tmp), r)
+    l <- c(l, l_tmp)
+  }
+
+  df <- do.call(expand.grid, l)
+  df[, "prob"] <- 1 / nrow(df)
+  return(df)
+}
+```
+
+
+```{r}
+omega <- create_probability_space(toss = c("H", "T"), repeats = 2)
+omega
+```
+
+
+```{r}
+calculate_probability <- function(df, ...) {
+  event <- subset(df, ...)
+  return(sum(event$prob))
+}
+```
+
+
+```{r}
+calculate_probability(omega)
+calculate_probability(omega, toss1=="H" & toss2=="H")
+calculate_probability(omega, toss1=="H" | toss2=="H")
+```
+
+
+```{r}
+calculate_unordered_probability <- function(sample_space, event) {
+  ix_prob <- which(colnames(sample_space) == "prob")
+  tmp_space <- sample_space
+  tmp_space$draw <- apply(tmp_space, 1, function(x) sort(unname(x[-ix_prob])), simplify=FALSE)
+  tmp_space$hash <- sapply(tmp_space$draw, rlang::hash)
+
+  subspace <- subset(tmp_space, hash == rlang::hash(sort(event)))
+  return(sum(subspace$prob))
+}
+```
+
+
+```{r}
+calculate_unordered_probability(omega, c("H", "H"))
+calculate_unordered_probability(omega, c("H", "T"))
+calculate_unordered_probability(omega, c("T", "H"))
+calculate_unordered_probability(omega, c("T", "T"))
+```
+
+
+```{r}
+make_unordered_sample_space <- function(sample_space) {
+  ix_prob <- which(colnames(sample_space) == "prob")
+  if (any(colnames(sample_space) == "draw")) {
+    error("'draw' is a protected name. No column can be called 'draw'.")
+  }
+  
+  tmp_space <- sample_space
+  tmp_space$draw <- apply(tmp_space, 1, function(x) sort(unname(x[-ix_prob])), simplify=FALSE)
+  tmp_space$hash <- sapply(tmp_space$draw, rlang::hash)
+
+  unordered_space <- aggregate(prob ~ hash, data = tmp_space, sum)
+  unordered_space <- merge(unordered_space, unique(tmp_space[, c("draw", "hash")]), by="hash", all.x=TRUE)
+  return(unordered_space[, c("draw", "prob")])
+}
+```
+
+
+```{r}
+unordered_omega <- make_unordered_sample_space(omega)
+
+condition <- sapply(unordered_omega$draw, function(x) sum(x == "H") == 2)
+unordered_omega[condition, ]
+```
+
+
+
+```{r}
+omega <- create_probability_space(toss = c("H", "T"), repeats = 3)
+omega
+```
+
+
+```{r}
+unordered_omega <- make_unordered_sample_space(omega)
+unordered_omega
+```
+
+
+```{r}
+calculate_unordered_probability(omega, c("H", "T", "H"))
+```
+
+
+```{r}
+condition <- function(draw) {
+  c1 <- sum(draw == "H") == 2
+  c2 <- sum(draw == "T") == 2
+  return(c1 | c2)
+}
+
+unordered_omega[sapply(unordered_omega$draw, condition), ]
+```
+
