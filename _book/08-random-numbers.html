@@ -235,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4184202</code></pre>
+<pre><code>[1] 0.01525563</code></pre>
 </div>
 </div>
 <p>Each time you run the above line you will get a different value and you will not be able to predict the next value no matter how many of the previous values you saved and what algorithm you are using. This is why we call these numbers random in any practical sense.</p>
@@ -243,32 +243,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.181786</code></pre>
+<pre><code>[1] -4.479378</code></pre>
 </div>
 </div>
 <p>What if we need more than one value? R makes this rather simple and usually the first argument to any distribution is the number of draws you want from that distribution. So instead of choosing <code>1</code> as in the code above, we could also choose <code>10</code> to obtain ten values of the same distribution. Since all values are equally likely, there is a zero probability that any of the ten values will be the same. Do not worry if this does not yet make sense. At the end of the course you will understand why. And if you do not trust us, feel free to sample one million values and check if any of them are the same.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">10</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.7391895  7.8468829  3.4228990 -3.0507882 -4.3389982 -1.2325779
- [7] -5.2447748  8.4834492  4.4202974 -2.3690366</code></pre>
+<pre><code> [1]  2.636561  6.611024 -2.604048  5.148154  5.898830  3.513498  6.067622
+ [8] -0.347630  1.309804 -9.083756</code></pre>
 </div>
 </div>
 <p>The ability to sample multiple values from the same distribution also allows us to obtain a random matrix for which each element is drawn independently from the same distribution. Independence means that knowing the value of one entry in the matrix will tell you nothing about what the other values will be. We will formalise this definition later on. To sample a random matrix with each element coming from the same distribution, we simply sample enough draws from the distribution and reshape it into a matrix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]        [,2]       [,3]       [,4]      [,5]
- [1,]  6.110544  0.09237407 -6.9389150  1.1043419  5.604996
- [2,]  6.627453  8.84098341  4.7992372 -5.4029689  2.865220
- [3,] -5.218010  2.86610752  3.7666544  2.2364814 -6.365197
- [4,]  8.408756 -4.86368971 -9.0459078  2.0165707  7.482659
- [5,]  7.505470 -3.26316576 -9.7070538 -5.9917008 -5.295479
- [6,]  2.972416 -2.00394654  0.1404606  9.4193316 -2.263060
- [7,] -1.754359  1.99045369  9.9857733 -0.8553077  4.923000
- [8,] -4.227171 -6.69245395 -6.9849415  2.8826777  5.682762
- [9,] -2.453841  8.67788003  0.9823586  0.9750781  9.112156
-[10,] -4.821014 -9.91321459  1.6309966  5.7419678  9.117780</code></pre>
+<pre><code>            [,1]        [,2]       [,3]       [,4]       [,5]
+ [1,]  3.9182791  1.82960283 -6.0449221  3.2569857 -2.5862904
+ [2,] -0.8435574 -5.64195009  0.8174881 -0.4217355  2.0236111
+ [3,]  8.6259753  5.08421588 -7.6369512 -7.9581147  9.0032572
+ [4,]  4.6641620  5.92586567  8.6884718 -1.8541758 -8.8264301
+ [5,] -4.2536843 -0.02040036  1.8268283  9.7284166  0.4308849
+ [6,]  4.3613425 -2.47945104  7.9103930  0.9356629  3.8201533
+ [7,]  0.4887152  5.06739960 -5.6487869 -8.3400894 -4.1758653
+ [8,]  3.0321796  2.08753050 -1.7546478  3.6434957  7.9204124
+ [9,] -2.2898546 -2.90445077 -0.7025326  5.5866343 -5.7134926
+[10,] -5.5535753 -7.77897254 -2.4663781 -5.1348772  3.6805194</code></pre>
 </div>
 </div>
 <p>What if we wanted to draw from another distribution? Many commonly used distributions exist and you will encounter many of them during this course. R implements most of them, with <a href="#tbl-random-functions">Table&nbsp;<span>9.1</span></a> providing an overview of the functions used for each distribution. Thus far we have only used the <code>r*</code> function and we will show the use of a <code>d*</code> functions below. We will encounter the other functions throughout the remainder of this course.</p>
@@ -418,30 +418,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -2.092701</code></pre>
+<pre><code>[1] -2.255284</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.024008</code></pre>
+<pre><code>[1] 9.739396</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  8.081633 11.546880 12.039557 10.955049  6.301349  8.352649  8.848000
- [8] 10.913137 11.155708  9.246667</code></pre>
+<pre><code> [1] 12.017702 14.862229 10.357995 10.373501  5.800036 16.400355  2.916203
+ [8]  7.699727 13.413034 12.592336</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
- [1,]  9.261870 12.551227  7.496526 10.836517  4.736707
- [2,]  9.628344 11.637900  9.570533  4.276506 10.460654
- [3,] 10.483552  9.448475 11.078976  5.692865  9.183107
- [4,]  7.780862  7.478748 13.774848  4.927531 12.000280
- [5,] 15.682420  9.684295 14.509092  8.575579  8.263950
- [6,]  8.059665  8.153659  3.807036  1.368578 16.785228
- [7,] 10.585699 16.870742 13.588127  7.604982 14.679313
- [8,] 10.078673 16.536665  4.217958  5.274862 17.837291
- [9,]  9.439316  8.195140  9.015256 16.500671  7.988308
-[10,] 14.925993  8.385097 11.116902 11.817959 13.128288</code></pre>
+ [1,]  6.734318 11.817252  4.001295  5.083443  7.968852
+ [2,]  6.584929  5.899351 10.943387 11.344336 14.154269
+ [3,] 14.651614  6.206911  9.434488  7.790682 13.420261
+ [4,]  7.023968  3.180198 10.899971  9.892596 12.817081
+ [5,] 14.897292  9.849254  5.827800 14.722788  2.396507
+ [6,]  8.188743  8.501350 13.947598  4.499604  6.321696
+ [7,]  9.591684  7.575047 13.774382  7.501008 17.038868
+ [8,] 10.347537 15.915468  4.993365 15.656907  6.965324
+ [9,] 14.664308  8.226125  4.936183 14.718259 14.735055
+[10,]  7.793951 11.665280  8.246279  7.766623 10.692931</code></pre>
 </div>
 </div>
 <p>While the uniform distribution is parameterised by the minimum and maximum values, the normal distribution is parameterised by the mean and standard deviation. Both are already used above to obtain different random values from the normal distribution, but if you want to know more about this parameterisation and the normal distribution, you can always ask the help.</p>
@@ -452,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09777534</code></pre>
+<pre><code>[1] 0.8919216</code></pre>
 </div>
 </div>
 <p>How does this Beta distribution look like? And how do the uniform and normal distributions look like? We can use the skills we developed so far to figure this out. First, we can draw a large number of draws from the Beta distribution. We can then plot the density histogram of these draws to get an idea of how the distribution looks like.</p>
