@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./09-monte-carlo-simulation.html" rel="next">
 <link href="./07-functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -194,6 +195,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-monte-carlo-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -224,44 +231,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Random numbers and random variables play an important role in probability theory. So do distributions of these random variables. While you will later learn what random variables and distributions are, we will here introduce the basics of them in R.</p>
 <p>Imagine rolling two dice and summing the outcome of the two. The value you obtain is a random number and if we assign it a meaning, it is a random variable. Why is it random? Simply because the outcome of each die was random. If you repeat the experiment you are likely to get new values. Now, computers cannot role die for us and thus they cannot generate truly random numbers. However, what they are incredible good at is to simulate values that are as good as random for any practical purposes. How they do this is beyond the scope of these notes, but feel free to look it up online.</p>
-<p>An example of a random number is a value between zero and one with each value being equally likely to appear. We call this a <span class="math inline">\(Uniform(0,1)\)</span> distribution and we can obtain a value from this distribution by running</p>
+<p>An example of a random number is a value between zero and one with each value being equally likely to appear. We call this a uniform distribution on the interval <span class="math inline">\((0,1)\)</span> (denoted as <span class="math inline">\(\text{Unif}(0,1)\)</span>) and we can obtain a value from this distribution by running</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3445639</code></pre>
+<pre><code>[1] 0.4184202</code></pre>
 </div>
 </div>
 <p>Each time you run the above line you will get a different value and you will not be able to predict the next value no matter how many of the previous values you saved and what algorithm you are using. This is why we call these numbers random in any practical sense.</p>
-<p>The Uniform distribution can also be extended to larger and smaller values. For example, we might want to obtain a random value between <code>-10</code> and <code>10</code> with all values being equally likely. This is an example of a Uniform(-10, 10) distribution, and similar to above, we can obtain a draw from this distribution by simply providing the <code>min</code> and <code>max</code> values of the Uniform distribution.</p>
+<p>The uniform distribution can also be extended to larger and smaller values. For example, we might want to obtain a random value between <code>-10</code> and <code>10</code> with all values being equally likely. This is an example of a <span class="math inline">\(\text{Unif}(-10, 10)\)</span> distribution, and similar to above, we can obtain a draw from this distribution by simply providing the <code>min</code> and <code>max</code> values of the uniform distribution.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -4.793213</code></pre>
+<pre><code>[1] -1.181786</code></pre>
 </div>
 </div>
 <p>What if we need more than one value? R makes this rather simple and usually the first argument to any distribution is the number of draws you want from that distribution. So instead of choosing <code>1</code> as in the code above, we could also choose <code>10</code> to obtain ten values of the same distribution. Since all values are equally likely, there is a zero probability that any of the ten values will be the same. Do not worry if this does not yet make sense. At the end of the course you will understand why. And if you do not trust us, feel free to sample one million values and check if any of them are the same.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">10</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  6.8671597  5.1295554  5.9114269  9.6209402  8.2722636 -8.6853944
- [7] -6.7846885 -0.3431702  7.4709654 -6.2616664</code></pre>
+<pre><code> [1] -0.7391895  7.8468829  3.4228990 -3.0507882 -4.3389982 -1.2325779
+ [7] -5.2447748  8.4834492  4.4202974 -2.3690366</code></pre>
 </div>
 </div>
-<p>The ability to sample multiple values from the same distribution also allows us to obtain a random matrix for which each element is drawn independently from the same distribution. Independence means that knowing the value of one entry in the matrix will tell you nothing about what the other values will be. We will formalise this definition later on. To sample a random matrix with each element coming from the same distribution, we simply sample eneough draws from the distribution and reshape it into a matrix.</p>
+<p>The ability to sample multiple values from the same distribution also allows us to obtain a random matrix for which each element is drawn independently from the same distribution. Independence means that knowing the value of one entry in the matrix will tell you nothing about what the other values will be. We will formalise this definition later on. To sample a random matrix with each element coming from the same distribution, we simply sample enough draws from the distribution and reshape it into a matrix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            [,1]      [,2]      [,3]      [,4]       [,5]
- [1,]  0.2192773 -4.118412  9.356224  4.547492  5.8140836
- [2,] -8.8700340  5.333348 -9.581195  8.594862  7.8051767
- [3,]  9.7525420 -2.420955 -2.298312 -6.117600 -2.4680074
- [4,]  3.9599877  2.469190 -8.301497 -6.301544  5.0652114
- [5,]  1.3878319  5.374703 -4.002743  0.924478 -2.6607961
- [6,]  2.4453766  2.812738  7.126445 -7.680380  3.4644442
- [7,] -9.3390748 -1.814100 -1.003662  7.530693  0.7395852
- [8,]  7.8881571  1.124798 -8.865901  4.881963  0.5502144
- [9,] -3.5319041  1.191986  7.023016 -8.815663  8.5520200
-[10,] -2.4908313 -1.467010  6.454418 -8.373079 -2.8661013</code></pre>
+<pre><code>           [,1]        [,2]       [,3]       [,4]      [,5]
+ [1,]  6.110544  0.09237407 -6.9389150  1.1043419  5.604996
+ [2,]  6.627453  8.84098341  4.7992372 -5.4029689  2.865220
+ [3,] -5.218010  2.86610752  3.7666544  2.2364814 -6.365197
+ [4,]  8.408756 -4.86368971 -9.0459078  2.0165707  7.482659
+ [5,]  7.505470 -3.26316576 -9.7070538 -5.9917008 -5.295479
+ [6,]  2.972416 -2.00394654  0.1404606  9.4193316 -2.263060
+ [7,] -1.754359  1.99045369  9.9857733 -0.8553077  4.923000
+ [8,] -4.227171 -6.69245395 -6.9849415  2.8826777  5.682762
+ [9,] -2.453841  8.67788003  0.9823586  0.9750781  9.112156
+[10,] -4.821014 -9.91321459  1.6309966  5.7419678  9.117780</code></pre>
 </div>
 </div>
 <p>What if we wanted to draw from another distribution? Many commonly used distributions exist and you will encounter many of them during this course. R implements most of them, with <a href="#tbl-random-functions">Table&nbsp;<span>9.1</span></a> providing an overview of the functions used for each distribution. Thus far we have only used the <code>r*</code> function and we will show the use of a <code>d*</code> functions below. We will encounter the other functions throughout the remainder of this course.</p>
@@ -407,56 +414,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </div>
-<p>According to <a href="#tbl-random-functions">Table&nbsp;<span>9.1</span></a>, to draw from the Normal/Gaussian distribution, we should use <code>rnorm</code>. The Normal distribution does not have the same arguments as the Uniform distribution though. Thus, even though we can just call <code>rnorm(1)</code>, we will not get a value between <code>0</code> and <code>1</code> as in the <code>runif(1)</code> case. Instead, the value could theoretically be anything, with the value most likely being somewhere between <code>-1.96</code> and <code>1.96</code>.</p>
+<p>According to <a href="#tbl-random-functions">Table&nbsp;<span>9.1</span></a>, to draw from the normal/Gaussian distribution, we should use <code>rnorm</code>. The normal distribution does not have the same arguments as the uniform distribution though. Thus, even though we can just call <code>rnorm(1)</code>, we will not get a value between <code>0</code> and <code>1</code> as in the <code>runif(1)</code> case. Instead, the value could theoretically be anything, with the value most likely being somewhere between <code>-3</code> and <code>3</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.142807</code></pre>
+<pre><code>[1] -2.092701</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 15.26203</code></pre>
+<pre><code>[1] 7.024008</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 16.342826  9.391923 13.472738 11.225570 13.038398 13.964349  6.399506
- [8]  9.014672  1.783598  6.506522</code></pre>
+<pre><code> [1]  8.081633 11.546880 12.039557 10.955049  6.301349  8.352649  8.848000
+ [8] 10.913137 11.155708  9.246667</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]      [,2]      [,3]       [,4]      [,5]
- [1,] 11.164482  7.004205  2.915716  9.1003014  9.926606
- [2,] 16.504609  9.487630 10.942762 16.3582677  5.925407
- [3,]  8.677673 14.600724 11.759768  0.9370706  8.640617
- [4,] 13.355123 10.207773 13.205262  3.6880465  5.519609
- [5,]  8.084572 11.769463 15.668381  9.5368252 18.958911
- [6,] 18.256376  8.886454  4.113854  9.9546031 10.987741
- [7,]  9.599589  8.975229 13.931983 11.8205853  6.868733
- [8,]  7.826774  9.861623  8.032217 11.7142252  8.901469
- [9,] 11.248901  7.646993  6.937044  1.9407766 18.602423
-[10,]  7.429851  7.658543 10.860393  7.2828729  4.097644</code></pre>
+<pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
+ [1,]  9.261870 12.551227  7.496526 10.836517  4.736707
+ [2,]  9.628344 11.637900  9.570533  4.276506 10.460654
+ [3,] 10.483552  9.448475 11.078976  5.692865  9.183107
+ [4,]  7.780862  7.478748 13.774848  4.927531 12.000280
+ [5,] 15.682420  9.684295 14.509092  8.575579  8.263950
+ [6,]  8.059665  8.153659  3.807036  1.368578 16.785228
+ [7,] 10.585699 16.870742 13.588127  7.604982 14.679313
+ [8,] 10.078673 16.536665  4.217958  5.274862 17.837291
+ [9,]  9.439316  8.195140  9.015256 16.500671  7.988308
+[10,] 14.925993  8.385097 11.116902 11.817959 13.128288</code></pre>
 </div>
 </div>
-<p>While the Uniform distribution is parameterised by the minimum and maximum values, the Normal distribution is parameterised by the mean and standard deviation. Both are already used above to obtain different random values from the Normal distribution, but if you want to know more about this parameterisation and the Normal distribution, you can always ask the help.</p>
+<p>While the uniform distribution is parameterised by the minimum and maximum values, the normal distribution is parameterised by the mean and standard deviation. Both are already used above to obtain different random values from the normal distribution, but if you want to know more about this parameterisation and the normal distribution, you can always ask the help.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>?rnorm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Another distribution you will encounter in the course is the Beta distribution. Contary to the Normal and the Uniform distribution, there exist no universally agreed upon default parameters for the Beta distribution, and thus <code>rbeta(1)</code> does not work. Instead, every time you want to draw a value from the Beta distribution, you need to specify its shape, which you can do by specifying two more arguments after the number of draws. Also check out <code>?rbeta</code>.</p>
+<p>Another distribution you will encounter in the course is the Beta distribution. In contrast to the normal and the uniform distribution, there exist no universally agreed upon default parameters for the Beta distribution, and thus <code>rbeta(1)</code> does not work. Instead, every time you want to draw a value from the Beta distribution, you need to specify its shape, which you can do by specifying two more arguments after the number of draws. Also check out <code>?rbeta</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3697751</code></pre>
+<pre><code>[1] 0.09777534</code></pre>
 </div>
 </div>
-<p>How does this Beta distribution look like? And how do the Uniform and Normal distributions look like? We can use the skills we developed thus far to figure this out. First, we can draw a large number of draws from the Beta distribution. We can then plot the density histogram of these draws to get an idea of how the distribution looks like.</p>
+<p>How does this Beta distribution look like? And how do the uniform and normal distributions look like? We can use the skills we developed so far to figure this out. First, we can draw a large number of draws from the Beta distribution. We can then plot the density histogram of these draws to get an idea of how the distribution looks like.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>draws_beta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>draws_beta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">1000</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(draws_beta, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08-random-numbers_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Even better than the empirical density that we obtained above, we can also plot the theoretical density. The <code>dbeta</code> function provides the density of the Beta function at any point. Thus, we can simply define the <code>x</code> range over which we want to plot the Beta density, then create a sequence of <code>x</code> points within that range and calculate the density at each of these points. This can then be plotted to get an even better understanding of how the theoretical density looks like.</p>
+<p>The obtained histogram depends on the random draws and thus will give you only a (random) approximation to the distribution. Alternatively, we can also plot the theoretical density. The <code>dbeta</code> function provides the density of the Beta function at any point. Thus, we can simply define the <code>x</code> range over which we want to plot the Beta density, then create a sequence of <code>x</code> points within that range and calculate the density at each of these points. This can then be plotted to get an even better understanding of how the theoretical density looks like.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>density_beta <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(x, <span class="dv">1</span>, <span class="dv">1</span>)</span>
@@ -465,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="08-random-numbers_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>With <code>10000</code> draws, the empirical density was quite close to the theoretical density. We could compare these two even better if we would plot them in the same plot. Additionally, we might ask just how many of these draws we need, and how the Beta distribution looks like for various values. Thus, we would like to do the same thing multiple times, each time only changing a small part of the code. By now, this should ring a bell: A function is needed! Below we implement a function that allows us to compare the empirical and theoretical density for various parameterisations and number of draws.</p>
+<p>With <code>10000</code> draws, the empirical density was quite close to the theoretical density. We could compare these two more easily if we plot them in the same plot. Additionally, we might ask just how many of these draws we need for a reasonably precise answer, and how the Beta distribution looks like for various parameter values. Thus, we would like to do the same thing multiple times, each time only changing a small part of the code. By now, this should ring a bell: A function is needed! Below we implement a function that allows us to compare the empirical and theoretical density for various parameterisations and number of draws.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Compares the empirical and theoretical density of a Beta distribution</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
@@ -494,7 +501,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(x, density_beta, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
 <span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Even better than above, we can see that the empirical density is very close to the theoretical density if we use <code>1000</code> draws.</p>
+<p>Even better than above, we can see that the empirical density is very close to the theoretical density if we use <code>10000</code> draws.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_beta_density</span>(<span class="dv">10000</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -535,8 +542,8 @@ Tip
 <p><img src="08-random-numbers_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Replicability is an important problem in science. Only results that can be replicated should be trusted. Unfortunately, many scientific results are difficult to replicate or are just never replicated for other reasons. Nonetheless, we should always aim at making our work as replicable as possible. This is not just for others, but also for ourselves. Sometimes we need to obtain the same graph again because we migth have to change the title. If the function provides a new graph each time, it becomes difficult to convince anyone that we actually used the same graph as before. Thus, we have to make our code replicable. Clean code is a first step towards that, but if we use randomness, we also need to use a seed.</p>
-<p>A seed assures that each time we run the code, we will obtain exactly the same results. The emphsise is on run the same code. We only obtain the same result if we run everything after the line at which we set the seed. To set a seed, we use <code>set.seed</code> and provide any integer to it. A good practice is to use a large integer, but even <code>set.seed(1)</code> is better than not setting any seed.</p>
+<p>Replicability is an important problem in science. Only results that can be replicated should be trusted. Unfortunately, many scientific results are difficult to replicate or are just never replicated for other reasons. Nonetheless, we should always aim at making our work as replicable as possible. This is not just for others, but also for ourselves. Sometimes we need to obtain the same graph again because we might have to change the title. If the function provides a new graph each time, it becomes difficult to convince anyone that we actually used the same graph as before. Thus, we have to make our code replicable. Clean code is a first step towards that, but if we use randomness, we also need to use a seed.</p>
+<p>A seed assures that each time we run the code, we will obtain exactly the same results. The emphasis is on run the same code. We only obtain the same result if we run everything after the line at which we set the seed. To set a seed, we use <code>set.seed</code> and provide any integer to it. A good practice is to use a large integer, but even <code>set.seed(1)</code> is better than not setting any seed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">6150533</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -552,7 +559,17 @@ Tip
 <pre><code>[1] 1.583487</code></pre>
 </div>
 </div>
-<p>We cannot emphasise enough that you should <strong>always set a seed</strong>. Not setting a seed will lead to problems later on and in this course will lead to potential loss of points.</p>
+<p>The downside of using a seed is that no matter how many times you run the above code you always will get the same value - quite the opposite of what you should expect of a random number! So while exploring some random quantity you do not want to reset the seed again and again to the same value. However, when starting to collect your results you need to set the seed (e.g.&nbsp;at the beginning of your submitted code) in order to make your results reproducible.</p>
+<p>R itself initialises its random number generators by use of the current time and some process ID. You can make use of this quite arbitrary initialisation by choosing the seed itself at random:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">100000000</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 65192504</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45489699</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 
@@ -797,6 +814,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./09-monte-carlo-simulation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

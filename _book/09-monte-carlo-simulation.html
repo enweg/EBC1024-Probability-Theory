@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Computational Introduction to Probability Theory - 9&nbsp; Monte Carlo simulations</title>
+<title>A Short Introduction to R for Probability - 10&nbsp; Monte Carlo simulations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
 <link href="./08-random-numbers.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -110,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-monte-carlo-simulation.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-monte-carlo-simulation.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">A Computational Introduction to Probability Theory</a> 
+      <a href="./">A Short Introduction to R for Probability</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,44 +160,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03-02-structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04-clean-code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-random-numbers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-monte-carlo-simulation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span></a>
   </div>
 </li>
     </ul>
@@ -207,14 +206,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-case-study" id="toc-a-case-study" class="nav-link active" data-scroll-target="#a-case-study"><span class="header-section-number">10.1</span> A case study</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></h1>
 </div>
 
 
@@ -229,131 +234,289 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Imagine you are working for a large pension fund and that you have figured out that the monthly return on your portfolio is approximately Normal distributed with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. Because you work for a pension fund, you have monthly expenses in the form of pension payments to clients. You are afraid of not being able to make these payments and thus start looking for ways to insure that you can make the payments over the next <code>t</code> years. A bank you have worked with before offers you a financial product. Every month that your portfolio does not return enough money to pay for the monthly payment of <code>x</code> euros, they will match the difference, therefore allowing you to still pay <code>x</code> euros. In return, they request to get <code>y</code> cents on any euro you make above the <code>x</code> euros in each month. Additionally, they request a one-off payment of <code>z</code> euros. For now we abstract away from all the other problems and instead your task as the econometrician in the company is to figure out how much you are expected to pay the bank and how much they are expected to pay you over the next <code>t</code> years.</p>
+<p>Sometimes we are confronted with problems that are difficult or even impossible to solve with standard mathematical or statistical methods. Often we can solve such problems by using a Monte Carlo approach. The basic idea is that instead of evaluating a complicated integral involving some probability density function we sample from the corresponding distribution many times and take the average of</p>
+<p>To illustrate the approach suppose that <span class="math inline">\(X_1,\ldots,X_n\)</span> are independent and uniformly distributed on the interval <span class="math inline">\([0,1]\)</span> and that we are interested in the distribution of the maximum, <span class="math display">\[
+Y=\max\{X_1,\ldots,X_n\}.
+\]</span> Although in this case we can derive the CDF and the PDF of <span class="math inline">\(Y\)</span> theoretically (and we will do so later in the course) we can use a Monte Carlo simulation to approximate the distribution of <span class="math inline">\(Y\)</span> and any derived quantities of interest such as the mean or the variance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>expected_payments <span class="ot">&lt;-</span> <span class="cf">function</span>(start_value, mu, sigma, t, x, y, z) {</span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>    returns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(t, mu, sigma)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>    money_received <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>    money_paid <span class="ot">&lt;-</span> z</span>
-<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>    portfolio_value <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, t<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>    portfolio_value[<span class="dv">1</span>] <span class="ot">&lt;-</span> start_value</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (tt <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(t<span class="sc">+</span><span class="dv">1</span>)) {</span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>      gain <span class="ot">&lt;-</span> portfolio_value[tt<span class="dv">-1</span>] <span class="sc">*</span> returns[tt<span class="dv">-1</span>]</span>
-<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (gain <span class="sc">==</span> x) {</span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>        portfolio_value[tt] <span class="ot">&lt;-</span> portfolio_value[tt<span class="dv">-1</span>]</span>
-<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span> (gain <span class="sc">&gt;</span> x) {</span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>        left_over_gain <span class="ot">&lt;-</span> gain <span class="sc">-</span> x</span>
-<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>        to_pay <span class="ot">=</span> y<span class="sc">*</span>left_over_gain</span>
-<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>        left_over_gain <span class="ot">&lt;-</span> left_over_gain <span class="sc">-</span> to_pay</span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a>        portfolio_value[tt] <span class="ot">&lt;-</span> portfolio_value[tt<span class="dv">-1</span>] <span class="sc">+</span> left_over_gain</span>
-<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>        money_paid <span class="ot">&lt;-</span> money_paid <span class="sc">+</span> to_pay</span>
-<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a>        money_received <span class="ot">&lt;-</span> money_received <span class="sc">+</span> x</span>
-<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>        portfolio_value[tt] <span class="ot">&lt;-</span> portfolio_value[tt<span class="dv">-1</span>] <span class="sc">+</span> gain</span>
-<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="annotated-cell-1-22"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="annotated-cell-1-23"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a>    out <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="annotated-cell-1-25"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">final_portfolio_value =</span> portfolio_value[t<span class="sc">+</span><span class="dv">1</span>], </span>
-<span id="annotated-cell-1-26"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">money_paid =</span> money_paid, </span>
-<span id="annotated-cell-1-27"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">money_received =</span> money_received</span>
-<span id="annotated-cell-1-28"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="annotated-cell-1-29"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="annotated-cell-1-30"><a href="#annotated-cell-1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(out)</span>
-<span id="annotated-cell-1-31"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R<span class="ot">=</span><span class="dv">100000</span>                         <span class="co"># number of Monte Carlo repetitions</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">10</span>                             <span class="co"># number of uniform random variables</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,R)                       <span class="co"># vector to store the maxima</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (r <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>R) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  X<span class="ot">=</span><span class="fu">runif</span>(n)                     <span class="co"># draw X_1 to X_n from uniform distribution</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  Y[r]<span class="ot">=</span><span class="fu">max</span>(X)                    <span class="co"># compute maximum of X_1 to X_n for the rth repetition</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The above code uses a <code>for</code> loop to realize the Monte Carlo repetitions. Although since version 3.4 R has a just-in-time compilation that improves runtime performance of loops considerably, an alternative implementation using <code>apply</code> and its variants still can yield slightly faster code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R<span class="ot">=</span><span class="dv">100000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">10</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">runif</span>(n<span class="sc">*</span>R)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X)<span class="ot">=</span><span class="fu">c</span>(n,R)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">apply</span>(X,<span class="dv">2</span>,max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this implementation all necessary memory is allocated at once and thus leads to a (slight) improvement in running time. The generated random values are grouped into a matrix where each column contains <span class="math inline">\(X_1,\ldots,X_n\)</span> for a single repetition. The <code>apply</code> command is used to compute the maximum <span class="math inline">\(Y\)</span> for each repetition (i.e.&nbsp;column).</p>
+<p>Another alternative implementation makes use of the <code>replicate</code> command. The code is self-documenting but leads to slightly higher running times.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>R<span class="ot">=</span><span class="dv">100000</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">10</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">replicate</span>(R,<span class="fu">max</span>(<span class="fu">runif</span>(n)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With each approrach we obtain a vector <code>Y</code> of length <code>R</code> which contains repeated realizations of the random variable <span class="math inline">\(Y\)</span>. With these values we can approximate any probability of interest, such as the probability that <span class="math inline">\(Y&gt;\tfrac{1}{2}\)</span>, by the corresponding empirical proportion:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fu">mean</span>(Y<span class="sc">&gt;</span><span class="fl">0.9</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.65281</code></pre>
+</div>
+</div>
+<p>Similarly, we can approximate the mean of <span class="math inline">\(Y\)</span> by the average of the simulated outcomes in <code>Y</code>, and the PDF of <span class="math inline">\(Y\)</span> can be visualized by a histogram:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram and print mean and variance</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Y,<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">length=</span><span class="dv">101</span>),<span class="at">freq=</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">0</span>,<span class="dv">9</span><span class="sc">*</span><span class="fu">max</span>(Y),<span class="fu">paste</span>(<span class="st">"E(Y)="</span>,<span class="fu">format</span>(<span class="fu">mean</span>(Y),<span class="at">digit=</span><span class="dv">4</span>),<span class="at">sep=</span><span class="st">""</span>),<span class="at">adj=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">0</span>,<span class="dv">8</span><span class="sc">*</span><span class="fu">max</span>(Y),<span class="fu">paste</span>(<span class="st">"var(Y)="</span>,<span class="fu">format</span>(<span class="fu">var</span>(Y),<span class="at">digit=</span><span class="dv">4</span>),<span class="at">sep=</span><span class="st">""</span>),<span class="at">adj=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-monte-carlo-simulation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As a second, slightly more advanced example let us assume that we hold a call option on a stock. The option pays at some fixed future time <span class="math inline">\(T\)</span> the amount by which the price <span class="math inline">\(S_T\)</span> of one share in the underlying stock exceeds a fixed price <span class="math inline">\(K\)</span> (the so-called strike price of the call option). In order to value our investment we might be interested in</p>
+<ul>
+<li>the expected pay-off of the call option: <span class="math inline">\(\mathbb{E}\big(\max(S_T-K,0)\big)\)</span>;</li>
+<li>the probability of the call option expiring worthless: <span class="math inline">\(\mathbb{P}(S_T&lt;K)\)</span>;</li>
+<li>the probability of the call option exceeding some value <span class="math inline">\(c^*\)</span>: <span class="math inline">\(\mathbb{P}(C_T&gt;c^*)=\mathbb{P}(S_T&gt;K+c^*)\)</span>;</li>
+<li>the complete distribution of the pay-off of the option.</li>
+</ul>
+<p>For simplicity we assume that the yearly log-returns of the stock are normally distributed with mean <span class="math inline">\(\mu=0.1\)</span> and standard deviation <span class="math inline">\(\sigma=0.2\)</span>. Furthermore, we assume that the option expires in half a year, that the current value of one share of the stock is <span class="math inline">\(S_0=100\)</span> and that <span class="math inline">\(c^*=120\)</span> (both in €).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>N<span class="ot">=</span><span class="dv">100000</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fl">0.1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fl">0.2</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>T<span class="ot">=</span><span class="fl">0.5</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>start_value<span class="ot">=</span><span class="dv">100</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Strike<span class="ot">=</span><span class="dv">110</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>threshold<span class="ot">=</span><span class="dv">120</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Z<span class="ot">=</span><span class="fu">rnorm</span>(N)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>final_value<span class="ot">=</span>start_value<span class="sc">*</span><span class="fu">exp</span>(mu<span class="sc">*</span>T<span class="sc">+</span>sigma<span class="sc">*</span><span class="fu">sqrt</span>(T)<span class="sc">*</span>Z)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>call_payoff<span class="ot">=</span><span class="fu">ifelse</span>(final_value<span class="sc">&gt;</span>Strike,final_value<span class="sc">-</span>Strike,<span class="dv">0</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>ave_payoff<span class="ot">=</span><span class="fu">mean</span>(call_payoff)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>p_zeropayoff<span class="ot">=</span><span class="fu">mean</span>(call_payoff<span class="sc">&lt;=</span><span class="dv">0</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>p_threshold<span class="ot">=</span><span class="fu">mean</span>(call_payoff<span class="sc">&gt;</span>threshold)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(call_payoff[call_payoff<span class="sc">&gt;</span><span class="dv">0</span>],<span class="at">breaks=</span><span class="dv">100</span>,<span class="at">freq=</span><span class="cn">FALSE</span>,<span class="at">main=</span><span class="st">"Histogram of positive payoffs"</span>,<span class="at">xlab=</span><span class="st">"payoff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-monte-carlo-simulation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>While the above probabilities and means can be derived exactly by analytic manipulations, computations become infeasible if we replace the normal distribution of the log-returns by a t distribution with <span class="math inline">\(v\)</span> degrees of freedom. For small <span class="math inline">\(v\)</span> the <span class="math inline">\(t\)</span> distribution tends to have more extreme values than the normal distribution and thus might be more realistic choice for the distribution of the log-returns. The code for the Monte Carlo simulation, on the other hand, can be straightforwardly adapted to this change of the underlying distribution by replacing the line <code>Z=rnorm(N)</code> by <code>Z=rt(N,df=v)</code> and defining <code>v</code> at the beginning of the code (e.g.&nbsp;<code>v=5</code> assures that the log-returns still have finite kurtosis.)</p>
+<section id="a-case-study" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="a-case-study"><span class="header-section-number">10.1</span> A case study</h2>
+<p>Imagine you are working for a large pension fund and you have figured out that the monthly return on your portfolio is approximately normally distributed with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. Because you work for a pension fund, you have monthly expenses in the form of pension payments to clients. You are afraid of not being able to make these payments and thus start looking for ways to insure that you can make the payments over the next <span class="math inline">\(T\)</span> years. A bank you have worked with before offers you a financial product. Every month that your portfolio does not return enough money to pay for the monthly payment of <span class="math inline">\(x\)</span> euros, they will match the difference, therefore allowing you to still pay <span class="math inline">\(x\)</span> euros. In return, they request to get <span class="math inline">\(y\)</span> cents on any euro you make above the <span class="math inline">\(x\)</span> euros in each month. Additionally, they request a one-off payment of <span class="math inline">\(z\)</span> euros. For now we abstract away from all the other problems and instead your task as the econometrician in the company is to figure out how much you are expected to pay the bank and how much they are expected to pay you over the next <span class="math inline">\(T\)</span> years.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a>simulate_payment <span class="ot">&lt;-</span> <span class="cf">function</span>(start_value, mu, sigma, T, x, y, z) {</span>
+<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>    num_months <span class="ot">&lt;-</span> T<span class="sc">*</span><span class="dv">12</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-3" class="code-annotation-target"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>    returns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(num_months,mu,sigma)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-7-4" class="code-annotation-target"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a>    money_received <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="annotated-cell-7-5"><a href="#annotated-cell-7-5" aria-hidden="true" tabindex="-1"></a>    money_paid <span class="ot">&lt;-</span> z</span>
+<span id="annotated-cell-7-6"><a href="#annotated-cell-7-6" aria-hidden="true" tabindex="-1"></a>    portfolio_value <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,num_months)</span>
+<span id="annotated-cell-7-7"><a href="#annotated-cell-7-7" aria-hidden="true" tabindex="-1"></a>    portfolio_value[<span class="dv">1</span>] <span class="ot">&lt;-</span> start_value</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-7-8" class="code-annotation-target"><a href="#annotated-cell-7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(num_months<span class="sc">+</span><span class="dv">1</span>)) {</span>
+<span id="annotated-cell-7-9"><a href="#annotated-cell-7-9" aria-hidden="true" tabindex="-1"></a>      gain <span class="ot">&lt;-</span> portfolio_value[t<span class="dv">-1</span>] <span class="sc">*</span> returns[t<span class="dv">-1</span>]</span>
+<span id="annotated-cell-7-10"><a href="#annotated-cell-7-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (gain <span class="sc">&gt;=</span> x) {</span>
+<span id="annotated-cell-7-11"><a href="#annotated-cell-7-11" aria-hidden="true" tabindex="-1"></a>        left_over_gain <span class="ot">&lt;-</span> gain <span class="sc">-</span> x</span>
+<span id="annotated-cell-7-12"><a href="#annotated-cell-7-12" aria-hidden="true" tabindex="-1"></a>        to_pay <span class="ot">&lt;-</span> y <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> left_over_gain</span>
+<span id="annotated-cell-7-13"><a href="#annotated-cell-7-13" aria-hidden="true" tabindex="-1"></a>        left_over_gain <span class="ot">&lt;-</span> left_over_gain <span class="sc">-</span> to_pay</span>
+<span id="annotated-cell-7-14"><a href="#annotated-cell-7-14" aria-hidden="true" tabindex="-1"></a>        portfolio_value[t] <span class="ot">&lt;-</span> portfolio_value[t<span class="dv">-1</span>] <span class="sc">+</span> left_over_gain</span>
+<span id="annotated-cell-7-15"><a href="#annotated-cell-7-15" aria-hidden="true" tabindex="-1"></a>        money_paid <span class="ot">&lt;-</span> money_paid <span class="sc">+</span> to_pay</span>
+<span id="annotated-cell-7-16"><a href="#annotated-cell-7-16" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="annotated-cell-7-17"><a href="#annotated-cell-7-17" aria-hidden="true" tabindex="-1"></a>        money_received <span class="ot">&lt;-</span> money_received <span class="sc">+</span> <span class="fu">min</span>(<span class="fu">c</span>(x<span class="sc">-</span>gain,x))</span>
+<span id="annotated-cell-7-18"><a href="#annotated-cell-7-18" aria-hidden="true" tabindex="-1"></a>        portfolio_value[t] <span class="ot">&lt;-</span> portfolio_value[t<span class="dv">-1</span>] <span class="sc">+</span> <span class="fu">min</span>(<span class="fu">c</span>(gain,<span class="dv">0</span>))</span>
+<span id="annotated-cell-7-19"><a href="#annotated-cell-7-19" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="annotated-cell-7-20"><a href="#annotated-cell-7-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="annotated-cell-7-21"><a href="#annotated-cell-7-21" aria-hidden="true" tabindex="-1"></a>    out <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">portfolio_value =</span> portfolio_value[num_months<span class="sc">+</span><span class="dv">1</span>], </span>
+<span id="annotated-cell-7-22"><a href="#annotated-cell-7-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">money_paid =</span> money_paid, </span>
+<span id="annotated-cell-7-23"><a href="#annotated-cell-7-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">money_received =</span> money_received</span>
+<span id="annotated-cell-7-24"><a href="#annotated-cell-7-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="annotated-cell-7-25"><a href="#annotated-cell-7-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(out)</span>
+<span id="annotated-cell-7-26"><a href="#annotated-cell-7-26" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="3" data-code-cell="annotated-cell-1">Draw the random returns from the Normal distribution</span>
+<span data-code-lines="3" data-code-annotation="1" data-code-cell="annotated-cell-7">draw the random returns from the normal distribution</span>
 </dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="4,5,6,7" data-code-cell="annotated-cell-1">Create variables to store simulation results</span>
+<span data-code-lines="4,5,6,7" data-code-annotation="2" data-code-cell="annotated-cell-7">create variables to store simulation results</span>
 </dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="8" data-code-cell="annotated-cell-1">Loop over each period. We start at <code>2</code> because period one is the starting period.</span>
+<span data-code-lines="8" data-code-annotation="3" data-code-cell="annotated-cell-7">loop over each period. We start at period <code>t=2</code> because time one is the starting time</span>
 </dd>
 </dl>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">10</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>experiment_results <span class="ot">&lt;-</span> <span class="fu">expected_payments</span>(start_value, mu, sigma, t, x, y, z)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>experiment_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">simulate_payment</span>(start_value, mu, sigma, T, x, y, z)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>final_portfolio_value            money_paid        money_received 
-             2206.620              1206.544               245.000 </code></pre>
+<pre><code>        portfolio_value money_paid money_received
+results 5760.885        2168.085   4594.806      </code></pre>
 </div>
 </div>
+<p>The following code generates the Monte Carlo repetitions to compute the expected values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MC_expected_payments <span class="ot">&lt;-</span> <span class="cf">function</span>(n, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">start_value =</span> <span class="dv">1000000</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">mu =</span> <span class="fl">0.01</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">sigma =</span> <span class="fl">0.05</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">t =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">10</span>, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">x =</span> <span class="dv">5000</span>, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">y =</span> <span class="fl">0.2</span>, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">z =</span> <span class="dv">50</span>, </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">seed =</span> <span class="dv">6150533</span>) {</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(seed)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>(i) <span class="fu">expected_payments</span>(start_value, mu, sigma, t, x, y, z)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  outputs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span>n, f)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  outputs <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, outputs)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  mean_outputs <span class="ot">&lt;-</span> <span class="fu">apply</span>(outputs, <span class="dv">2</span>, mean)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(mean_outputs)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="ot">&lt;-</span> <span class="fu">MC_expected_payments</span>(<span class="dv">1000</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>outputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>expected_payments <span class="ot">&lt;-</span> <span class="cf">function</span>(n, start_value, mu,sigma, T, x, y, z, seed) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">missing</span>(seed)) <span class="fu">set.seed</span>(seed)    <span class="co"># set seed if provided</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>(i) <span class="fu">unlist</span>(<span class="fu">simulate_payment</span>(start_value, mu, sigma, T, x, y, z))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  outputs <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span>n, f, <span class="at">simplify=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  mean_outputs <span class="ot">&lt;-</span> <span class="fu">apply</span>(outputs, <span class="dv">1</span>, mean)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(mean_outputs)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># example values</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>outputs <span class="ot">&lt;-</span> <span class="fu">expected_payments</span>(<span class="dv">10000</span>,start_value,mu,sigma,T,x,y,z)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>outputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>final_portfolio_value            money_paid        money_received 
-            1469994.2              669113.3              274960.0 </code></pre>
+<pre><code>portfolio_value      money_paid  money_received 
+      16912.177        4154.046        3831.000 </code></pre>
 </div>
 </div>
+<p>Finally we compute the expected gain or loss from the contract for a range of monthly costs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>value_contract <span class="ot">&lt;-</span> <span class="cf">function</span>(n, xs, ...) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">MC_expected_payments</span>(n, <span class="at">x =</span> x, ...), <span class="at">x =</span> x)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  exp_pay <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, f)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  exp_pay <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, exp_pay)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  exp_value <span class="ot">&lt;-</span> exp_pay[, <span class="st">"money_received"</span>] <span class="sc">-</span> exp_pay[, <span class="st">"money_paid"</span>]</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> <span class="fu">cbind</span>(exp_value, exp_pay[, <span class="st">"x"</span>])</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(output) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Expected Value"</span>, <span class="st">"X"</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(output)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.1</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">value_contract</span>(<span class="dv">1000</span>, <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="dv">1</span>), <span class="at">start_value =</span> start_value, <span class="at">y =</span> y, <span class="at">z =</span> z, <span class="at">mu =</span> mu, <span class="at">sigma =</span> sigma);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(value[, <span class="st">"X"</span>], </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     value[, <span class="st">"Expected Value"</span>], </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"l"</span>, </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Value of Proposed Contract"</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Monthly Payments Due"</span>, </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"$"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>value_contract <span class="ot">&lt;-</span> <span class="cf">function</span>(n, xs, start_value, mu, sigma, T, y, z) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">expected_payments</span>(n,start_value,mu,sigma,T,x,y,z), <span class="at">x =</span> x)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  exp_pay <span class="ot">&lt;-</span> <span class="fu">sapply</span>(xs, f)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  exp_value <span class="ot">&lt;-</span> exp_pay[<span class="st">"money_received"</span>,] <span class="sc">-</span> exp_pay[<span class="st">"money_paid"</span>,]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> <span class="fu">cbind</span>(exp_value, exp_pay[<span class="st">"x"</span>,])</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(output) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Expected Value"</span>, <span class="st">"X"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># compute expected gain/loss for range of monthly costs</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">value_contract</span>(<span class="dv">10000</span>, <span class="fu">seq</span>(<span class="dv">60</span>,<span class="dv">90</span>, <span class="dv">2</span>), <span class="at">start_value =</span> start_value, <span class="at">T =</span> T, <span class="at">y =</span> y, <span class="at">z =</span> z, <span class="at">mu =</span> mu, <span class="at">sigma =</span> sigma);</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># plot a curve showing the expected gain/loss for chosen range of monthly costs</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">2.5</span>,<span class="fl">2.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>),<span class="at">mgp=</span><span class="fu">c</span>(<span class="fl">1.4</span>,<span class="fl">0.2</span>,<span class="dv">0</span>),<span class="at">cex=</span><span class="fl">0.7</span>,<span class="at">bty=</span><span class="st">"l"</span>,<span class="at">las=</span><span class="dv">1</span>,<span class="at">lwd=</span><span class="fl">0.5</span>,<span class="at">tck=</span><span class="fl">0.01</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(value[,<span class="st">"X"</span>], </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>     value[,<span class="st">"Expected Value"</span>], </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"l"</span>, </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Monthly cost x [K€]"</span>, </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Expected payoff of contract [K€]"</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="09-monte-carlo-simulation_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="09-monte-carlo-simulation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Since the value of the portfolio at time <span class="math inline">\(t\)</span> depends on the value at time <span class="math inline">\(t-1\)</span>, the simulation of the portfolio values over time cannot be vectorized. However, instead of looping for each Monte Carlo repetition separately, we can make use of vectorized computations by stacking all repetitions into one vector. In order to execute conditional statements elementwise we note that the price of the portfolio at time <span class="math inline">\(t\)</span> can be written as <span class="math display">\[
+\Pi_t=(1-y)G_t\,1_{\{G_t&gt;x\}}+G_t\,1_{\{G_t&lt;0\}}.
+\]</span> where <span class="math inline">\(G_t=\Pi_{t-1}\,r_t\)</span> is the gain or loss of the portfolio and <span class="math inline">\(r_t\)</span> is the return of the portfolio. The indicator functions cen be implemented by using the <code>ifelse</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-11"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-11-1"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a>simulate_payments <span class="ot">&lt;-</span> <span class="cf">function</span>(n,start_value, mu, sigma, T, x, y, z) {</span>
+<span id="annotated-cell-11-2"><a href="#annotated-cell-11-2" aria-hidden="true" tabindex="-1"></a>  num_months <span class="ot">&lt;-</span> T<span class="sc">*</span><span class="dv">12</span></span>
+<span id="annotated-cell-11-3"><a href="#annotated-cell-11-3" aria-hidden="true" tabindex="-1"></a>  returns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(num_months<span class="sc">*</span>n, mu, sigma)</span>
+<span id="annotated-cell-11-4"><a href="#annotated-cell-11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>(returns)<span class="ot">=</span><span class="fu">c</span>(num_months,n)</span>
+<span id="annotated-cell-11-5"><a href="#annotated-cell-11-5" aria-hidden="true" tabindex="-1"></a>  money_received <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,n)</span>
+<span id="annotated-cell-11-6"><a href="#annotated-cell-11-6" aria-hidden="true" tabindex="-1"></a>  money_paid <span class="ot">&lt;-</span> <span class="fu">rep</span>(z,n)</span>
+<span id="annotated-cell-11-7"><a href="#annotated-cell-11-7" aria-hidden="true" tabindex="-1"></a>  portfolio_value <span class="ot">&lt;-</span> <span class="fu">rep</span>(start_value,n)</span>
+<span id="annotated-cell-11-8"><a href="#annotated-cell-11-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_months) {</span>
+<span id="annotated-cell-11-9"><a href="#annotated-cell-11-9" aria-hidden="true" tabindex="-1"></a>    gain <span class="ot">&lt;-</span> portfolio_value <span class="sc">*</span> returns[t,]</span>
+<span id="annotated-cell-11-10"><a href="#annotated-cell-11-10" aria-hidden="true" tabindex="-1"></a>    gtx<span class="ot">&lt;-</span><span class="fu">ifelse</span>(gain<span class="sc">&gt;</span>x,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="annotated-cell-11-11"><a href="#annotated-cell-11-11" aria-hidden="true" tabindex="-1"></a>    gtzero<span class="ot">&lt;-</span><span class="fu">ifelse</span>(gain<span class="sc">&gt;</span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="annotated-cell-11-12"><a href="#annotated-cell-11-12" aria-hidden="true" tabindex="-1"></a>    left_over_gain <span class="ot">&lt;-</span> gtx<span class="sc">*</span>(gain <span class="sc">-</span> x)</span>
+<span id="annotated-cell-11-13"><a href="#annotated-cell-11-13" aria-hidden="true" tabindex="-1"></a>    to_pay <span class="ot">&lt;-</span> (y<span class="sc">/</span><span class="dv">100</span>)<span class="sc">*</span>left_over_gain</span>
+<span id="annotated-cell-11-14"><a href="#annotated-cell-11-14" aria-hidden="true" tabindex="-1"></a>    to_receive <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">-</span>gtx)<span class="sc">*</span>(x<span class="sc">-</span>gtzero<span class="sc">*</span>gain)</span>
+<span id="annotated-cell-11-15"><a href="#annotated-cell-11-15" aria-hidden="true" tabindex="-1"></a>    money_paid <span class="ot">&lt;-</span> money_paid <span class="sc">+</span> to_pay</span>
+<span id="annotated-cell-11-16"><a href="#annotated-cell-11-16" aria-hidden="true" tabindex="-1"></a>    money_received <span class="ot">&lt;-</span> money_received <span class="sc">+</span> to_receive</span>
+<span id="annotated-cell-11-17"><a href="#annotated-cell-11-17" aria-hidden="true" tabindex="-1"></a>    portfolio_value <span class="ot">&lt;-</span> portfolio_value <span class="sc">+</span> left_over_gain<span class="sc">-</span>to_pay<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>gtzero)<span class="sc">*</span>gain</span>
+<span id="annotated-cell-11-18"><a href="#annotated-cell-11-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="annotated-cell-11-19"><a href="#annotated-cell-11-19" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="annotated-cell-11-20"><a href="#annotated-cell-11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">portfolio_value =</span> portfolio_value, </span>
+<span id="annotated-cell-11-21"><a href="#annotated-cell-11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">money_paid =</span> money_paid, </span>
+<span id="annotated-cell-11-22"><a href="#annotated-cell-11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">money_received =</span> money_received</span>
+<span id="annotated-cell-11-23"><a href="#annotated-cell-11-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="annotated-cell-11-24"><a href="#annotated-cell-11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="annotated-cell-11-25"><a href="#annotated-cell-11-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The rest of the code is similar to that of the first approach.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">12</span><span class="sc">*</span>T<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>result<span class="ot">=</span><span class="fu">simulate_payments</span>(<span class="dv">1</span>,start_value, mu, sigma, T, x, y, z)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>output<span class="ot">=</span><span class="fu">lapply</span>(result,mean)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$portfolio_value
+[1] 14409.08
+
+$money_paid
+[1] 3453.388
+
+$money_received
+[1] 4046.567</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>value_contract <span class="ot">&lt;-</span> <span class="cf">function</span>(n, xs, start_value, mu, sigma, T, y, z) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  L<span class="ot">=</span><span class="fu">length</span>(xs)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  output<span class="ot">=</span><span class="fu">matrix</span>(<span class="cn">NA</span>,L,<span class="dv">2</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>L) {</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    result<span class="ot">=</span><span class="fu">simulate_payments</span>(n,start_value, mu, sigma, T, xs[i], y, z)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    output[i,]<span class="ot">=</span><span class="fu">c</span>(<span class="fu">mean</span>(result<span class="sc">$</span>money_received<span class="sc">-</span>result<span class="sc">$</span>money_paid),xs[i])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(output) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Expected Value"</span>, <span class="st">"X"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize parameter values</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># range of values for which the expected gain/loss is computed</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>xs<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">60</span>,<span class="dv">90</span>, <span class="dv">2</span>) </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">value_contract</span>(<span class="dv">10000</span>, xs, start_value, mu, sigma, T, <span class="at">y =</span> y, <span class="at">z =</span> z);</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">2.5</span>,<span class="fl">2.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>),<span class="at">mgp=</span><span class="fu">c</span>(<span class="fl">1.4</span>,<span class="fl">0.2</span>,<span class="dv">0</span>),<span class="at">cex=</span><span class="fl">0.7</span>,<span class="at">bty=</span><span class="st">"l"</span>,<span class="at">las=</span><span class="dv">1</span>,<span class="at">lwd=</span><span class="fl">0.5</span>,<span class="at">tck=</span><span class="fl">0.01</span>)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(value[,<span class="st">"X"</span>], </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>     value[,<span class="st">"Expected Value"</span>], </span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"l"</span>, </span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Monthly Payments Due [K€]"</span>, </span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Expected payoff of contract [K€]"</span>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-monte-carlo-simulation_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -592,13 +755,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./08-random-numbers.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random numbers</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
