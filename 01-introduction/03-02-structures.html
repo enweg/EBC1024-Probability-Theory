@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Short Introduction to R for Probability - 4&nbsp; Useful Data Structures</title>
+<title>A Short Introduction to R for Probability - 3&nbsp; Useful Data Structures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,24 +57,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./04-clean-code.html" rel="next">
-<link href="./03-variables-indexing.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../01-introduction/04-clean-code.html" rel="next">
+<link href="../01-introduction/03-variables-indexing.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-02-structures.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-introduction/01-introduction.html">Introduction to R</a></li><li class="breadcrumb-item"><a href="../01-introduction/03-02-structures.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">A Short Introduction to R for Probability</a> 
+      <a href="../">A Short Introduction to R for Probability</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -135,70 +135,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../01-introduction/01-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  <a href="../01-introduction/02-r-calculator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R as a calculator</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-r-calculator.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R as a calculator</span></span></a>
+  <a href="../01-introduction/03-variables-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Indexing</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-variables-indexing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variables and Indexing</span></span></a>
+  <a href="../01-introduction/03-02-structures.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-02-structures.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></span></a>
+  <a href="../01-introduction/04-clean-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-clean-code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span></a>
+  <a href="../01-introduction/05-loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
+  <a href="../01-introduction/06-conditionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
+  <a href="../01-introduction/07-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  <a href="../01-introduction/08-random-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-random-numbers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-monte-carlo-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span></a>
-  </div>
-</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -212,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></h1>
 </div>
 
 
@@ -342,16 +341,16 @@ $boolean
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id grade
-1   e     1
-2   o     2
-3   w     3
-4   k     4
-5   n     5
-6   m     6
-7   v     7
+1   v     1
+2   c     2
+3   d     3
+4   s     4
+5   f     5
+6   u     6
+7   a     7
 8   b     8
-9   f     9
-10  c    10</code></pre>
+9   o     9
+10  q    10</code></pre>
 </div>
 </div>
 <p>A common data frame you might obtain for your concurrent macroeconomics class contains a column for the year, a column for GDP growth, a column for CPI growth, and a column for unemployment. Such a data frame might thus look like the following.</p>
@@ -359,97 +358,97 @@ $boolean
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">1960</span><span class="sc">:</span><span class="dv">2024</span>, <span class="at">GDP_growth =</span> <span class="fu">rnorm</span>(<span class="dv">65</span>, <span class="at">mean=</span><span class="fl">0.5</span>), <span class="at">CPI_growth =</span> <span class="fu">rnorm</span>(<span class="dv">65</span>), <span class="at">urate =</span> <span class="fu">runif</span>(<span class="dv">65</span>, <span class="at">min =</span> <span class="dv">3</span>, <span class="at">max =</span> <span class="dv">10</span>))</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   year  GDP_growth  CPI_growth    urate
-1  1960 -0.08892621  0.16463587 5.065491
-2  1961  1.24872553  0.78591116 4.266830
-3  1962  0.06668438 -0.29222459 9.594971
-4  1963  1.46695965  0.39828452 5.794365
-5  1964  1.67476822  0.39566550 6.287162
-6  1965 -0.33164329  0.21982581 7.415040
-7  1966  1.32843147  0.05546870 8.851888
-8  1967  2.33941362  0.86304083 9.618320
-9  1968  0.82998192  0.29445480 5.880486
-10 1969  0.34202845 -1.16402566 3.800347
-11 1970  1.93714221  1.00697613 4.162238
-12 1971 -0.61093546 -0.43794197 4.928424
-13 1972 -0.32269076 -0.28197791 6.333750
-14 1973  2.12371545  1.56259218 8.063485
-15 1974 -0.41661919  0.44616816 8.357204
-16 1975  0.92002998  1.10120342 7.693329
-17 1976  0.23640530 -1.15584169 7.442181
-18 1977 -0.35992292 -0.67781385 4.568331
-19 1978  1.05412815  0.71357399 7.538689
-20 1979  1.61667903 -1.11192905 6.670166
-21 1980 -1.00211219  0.37982735 9.459323
-22 1981  1.39579213 -1.16674061 4.452969
-23 1982 -2.21678108 -0.74216246 5.838885
-24 1983 -1.71197846  0.90218395 8.534942
-25 1984  1.39350696  0.51763579 9.185164
-26 1985 -0.35227946 -0.74193505 7.865650
-27 1986  1.32189484 -0.70810337 9.655562
-28 1987  1.81583622 -1.43456787 9.258499
-29 1988  0.91614636  1.09233044 5.055258
-30 1989 -0.37515893  2.61133629 5.942377
-31 1990  1.19678903 -0.51074292 4.880914
-32 1991  0.65947683 -1.77134081 8.708443
-33 1992 -0.29349408  0.19860990 7.152598
-34 1993 -0.43407339 -1.46311341 9.428337
-35 1994  0.15249644  0.80053843 9.808177
-36 1995  0.94966567  1.17657243 5.414148
-37 1996  1.13073676  0.73802986 3.607648
-38 1997  1.14460218 -0.50579893 4.171454
-39 1998  2.34118599  0.36405933 5.652493
-40 1999  0.26529119  0.08888244 5.794934
-41 2000 -0.47247537 -1.13064966 6.741402
-42 2001  0.74049731 -1.48091782 7.396782
-43 2002  1.52611265 -0.39012195 9.438776
-44 2003  1.71800152  0.29406199 9.715607
-45 2004  0.55768243 -0.68213394 5.365145
-46 2005  0.84263463 -1.33776471 5.024965
-47 2006  1.37526383  0.05918326 4.475322
-48 2007  0.36317796 -1.13859225 8.061715
-49 2008  1.87992367  0.60606532 5.870958
-50 2009 -0.36660904  0.40915355 4.271145
-51 2010  2.99956215 -1.31301024 6.169534
-52 2011  0.35001905  0.78546156 9.180057
-53 2012  0.95686730  0.04243047 4.527058
-54 2013 -1.34402135 -1.90776670 6.241158
-55 2014  0.83078387  1.16082595 3.965152
-56 2015 -0.28912279 -0.50285570 4.759643
-57 2016  0.04145113 -0.58810780 4.338493
-58 2017  0.53682475  0.48371657 9.358597
-59 2018 -0.23261364 -0.84110757 3.786608
-60 2019 -0.36700289 -0.05692854 6.574672
-61 2020 -0.70147221 -0.93221559 5.978248
-62 2021  0.43394570 -0.29860725 3.458615
-63 2022 -0.87265212  0.17857421 8.926980
-64 2023 -1.09866101  0.39197797 4.220703
-65 2024  0.53162703  0.04931760 7.966602</code></pre>
+<pre><code>   year  GDP_growth   CPI_growth    urate
+1  1960 -1.22243562  0.566773765 6.926558
+2  1961  0.84534647  1.718184714 5.601353
+3  1962  1.96256483  1.518364060 5.171897
+4  1963  0.54319004  2.769155525 4.735195
+5  1964  0.27697046  0.794686166 3.167257
+6  1965  0.56430289 -0.006883313 6.638969
+7  1966  0.65549892  1.194652840 4.020461
+8  1967 -0.67837129 -0.397379433 8.920059
+9  1968 -0.12992637  0.403631193 3.755164
+10 1969  1.72975265  0.331752063 5.853563
+11 1970  0.16167003 -0.810302353 5.745867
+12 1971  1.04712625  0.271369356 3.927922
+13 1972  1.90120993  0.870068010 4.288156
+14 1973  2.60881796  1.173683143 5.979824
+15 1974 -0.11527080  0.743927527 9.531837
+16 1975  1.14465499  0.422704718 8.072365
+17 1976  1.54805795  1.607140240 3.544387
+18 1977  0.30389731  0.124674012 5.479802
+19 1978  2.52482526 -0.041732066 3.244105
+20 1979  0.73430072 -1.761685060 9.820016
+21 1980  0.40084708  0.437343698 6.860646
+22 1981 -0.02462052 -0.281006390 8.704523
+23 1982  0.15006055 -2.627345672 5.618642
+24 1983 -0.35207969 -0.311053466 3.743300
+25 1984  1.46027651 -0.294679660 3.983446
+26 1985 -2.34349005 -0.632824535 5.719955
+27 1986  0.24229163  0.210385281 7.685395
+28 1987  1.26442922 -0.242354885 7.773949
+29 1988 -0.39483103 -1.536032123 4.083268
+30 1989  2.22506820 -0.595155626 4.143458
+31 1990 -0.98125955  0.047043574 5.169099
+32 1991  1.79548949  0.916578077 4.374899
+33 1992  2.70936643  0.994743739 3.184855
+34 1993  0.82728598 -0.856459146 3.851781
+35 1994 -2.08396176 -0.341259805 5.302464
+36 1995  1.24419928  1.505321197 9.609048
+37 1996 -0.05419088  0.432962094 3.835740
+38 1997  1.20454671  0.607197046 3.316178
+39 1998  0.30104796 -0.117635801 6.365440
+40 1999 -0.20482517  0.358752264 3.367027
+41 2000  1.21036478 -0.911980447 9.868248
+42 2001  0.88366877  0.734425593 8.200396
+43 2002 -0.79135566  0.984682192 4.633227
+44 2003  2.40259286  0.095464569 5.604016
+45 2004  0.62896695 -0.258358603 8.671471
+46 2005 -1.10216386 -1.580653487 8.701475
+47 2006 -0.85675981 -0.988274061 7.467863
+48 2007  1.05238415 -0.635749398 3.973571
+49 2008  1.10135485  0.268868883 7.095878
+50 2009  2.70238074 -0.494777111 6.397738
+51 2010 -0.19551987  1.051215885 8.778208
+52 2011 -0.55418837  0.675535844 5.434314
+53 2012  1.04010862 -0.816046548 5.931257
+54 2013  1.12381747  0.760752589 5.218100
+55 2014  1.41320716 -0.923659743 4.265225
+56 2015  0.88946926 -1.162780202 8.688282
+57 2016  1.81570871  0.178834531 7.623710
+58 2017  2.33043864  3.181075195 4.942314
+59 2018  1.50427524  0.109958398 7.561973
+60 2019  1.07238595 -0.798046794 6.779565
+61 2020  0.75324687 -0.836180171 5.149824
+62 2021 -1.31190115  1.777297184 4.073657
+63 2022  0.79141576 -0.156355051 8.594263
+64 2023  0.13686870 -0.308120930 9.796194
+65 2024  1.48017372  0.421053009 7.377092</code></pre>
 </div>
 </div>
 <p>While this data frame is technically still considered small, it already becomes clear that the more rows a data frame has, the more difficult it is to get an overview of the data. Having functions that only print some of the rows of the data frame to the console is thus useful. R provides the <code>head</code> and <code>tail</code> functions, with the <code>head</code> function printing the first few rows, and the <code>tail</code> function printing the last few rows.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  year  GDP_growth CPI_growth    urate
-1 1960 -0.08892621  0.1646359 5.065491
-2 1961  1.24872553  0.7859112 4.266830
-3 1962  0.06668438 -0.2922246 9.594971
-4 1963  1.46695965  0.3982845 5.794365
-5 1964  1.67476822  0.3956655 6.287162
-6 1965 -0.33164329  0.2198258 7.415040</code></pre>
+<pre><code>  year GDP_growth   CPI_growth    urate
+1 1960 -1.2224356  0.566773765 6.926558
+2 1961  0.8453465  1.718184714 5.601353
+3 1962  1.9625648  1.518364060 5.171897
+4 1963  0.5431900  2.769155525 4.735195
+5 1964  0.2769705  0.794686166 3.167257
+6 1965  0.5643029 -0.006883313 6.638969</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   year GDP_growth  CPI_growth    urate
-60 2019 -0.3670029 -0.05692854 6.574672
-61 2020 -0.7014722 -0.93221559 5.978248
-62 2021  0.4339457 -0.29860725 3.458615
-63 2022 -0.8726521  0.17857421 8.926980
-64 2023 -1.0986610  0.39197797 4.220703
-65 2024  0.5316270  0.04931760 7.966602</code></pre>
+<pre><code>   year GDP_growth CPI_growth    urate
+60 2019  1.0723860 -0.7980468 6.779565
+61 2020  0.7532469 -0.8361802 5.149824
+62 2021 -1.3119011  1.7772972 4.073657
+63 2022  0.7914158 -0.1563551 8.594263
+64 2023  0.1368687 -0.3081209 9.796194
+65 2024  1.4801737  0.4210530 7.377092</code></pre>
 </div>
 </div>
 <p>Many more useful functions exist to work with data frames. We recommend you have a small search online. Data frames will be your trustworthy companion throughout the remainder of your studies and over time you will learn many useful manipulation techniques.</p>
@@ -692,13 +691,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-variables-indexing.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variables and Indexing</span></span>
+      <a href="../01-introduction/03-variables-indexing.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Indexing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-clean-code.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../01-introduction/04-clean-code.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

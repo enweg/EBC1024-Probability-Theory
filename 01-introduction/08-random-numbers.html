@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Short Introduction to R for Probability - 9&nbsp; Random numbers</title>
+<title>A Short Introduction to R for Probability - 8&nbsp; Random numbers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,24 +57,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./09-monte-carlo-simulation.html" rel="next">
-<link href="./07-functions.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../01-introduction/07-functions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-random-numbers.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-introduction/01-introduction.html">Introduction to R</a></li><li class="breadcrumb-item"><a href="../01-introduction/08-random-numbers.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random numbers</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">A Short Introduction to R for Probability</a> 
+      <a href="../">A Short Introduction to R for Probability</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -137,70 +136,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../01-introduction/01-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  <a href="../01-introduction/02-r-calculator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R as a calculator</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-r-calculator.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R as a calculator</span></span></a>
+  <a href="../01-introduction/03-variables-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Indexing</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-variables-indexing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variables and Indexing</span></span></a>
+  <a href="../01-introduction/03-02-structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-02-structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Useful Data Structures</span></span></a>
+  <a href="../01-introduction/04-clean-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-clean-code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Commenting and clean code</span></span></a>
+  <a href="../01-introduction/05-loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
+  <a href="../01-introduction/06-conditionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
+  <a href="../01-introduction/07-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  <a href="../01-introduction/08-random-numbers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-random-numbers.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-monte-carlo-simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span></a>
-  </div>
-</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -214,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Random numbers</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random numbers</span></h1>
 </div>
 
 
@@ -231,50 +229,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Random numbers and random variables play an important role in probability theory. So do distributions of these random variables. While you will later learn what random variables and distributions are, we will here introduce the basics of them in R.</p>
 <p>Imagine rolling two dice and summing the outcome of the two. The value you obtain is a random number and if we assign it a meaning, it is a random variable. Why is it random? Simply because the outcome of each die was random. If you repeat the experiment you are likely to get new values. Now, computers cannot role die for us and thus they cannot generate truly random numbers. However, what they are incredible good at is to simulate values that are as good as random for any practical purposes. How they do this is beyond the scope of these notes, but feel free to look it up online.</p>
-<p>An example of a random number is a value between zero and one with each value being equally likely to appear. We call this a uniform distribution on the interval <span class="math inline">\((0,1)\)</span> (denoted as <span class="math inline">\(\text{Unif}(0,1)\)</span>) and we can obtain a value from this distribution by running</p>
+<p>An example of a random number is a value between zero and one with each value being equally likely to appear. We call this a <span class="math inline">\(Uniform(0,1)\)</span> distribution and we can obtain a value from this distribution by running</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9903114</code></pre>
+<pre><code>[1] 0.5952391</code></pre>
 </div>
 </div>
 <p>Each time you run the above line you will get a different value and you will not be able to predict the next value no matter how many of the previous values you saved and what algorithm you are using. This is why we call these numbers random in any practical sense.</p>
-<p>The uniform distribution can also be extended to larger and smaller values. For example, we might want to obtain a random value between <code>-10</code> and <code>10</code> with all values being equally likely. This is an example of a <span class="math inline">\(\text{Unif}(-10, 10)\)</span> distribution, and similar to above, we can obtain a draw from this distribution by simply providing the <code>min</code> and <code>max</code> values of the uniform distribution.</p>
+<p>The Uniform distribution can also be extended to larger and smaller values. For example, we might want to obtain a random value between <code>-10</code> and <code>10</code> with all values being equally likely. This is an example of a Uniform(-10, 10) distribution, and similar to above, we can obtain a draw from this distribution by simply providing the <code>min</code> and <code>max</code> values of the Uniform distribution.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.8965356</code></pre>
+<pre><code>[1] 8.383511</code></pre>
 </div>
 </div>
 <p>What if we need more than one value? R makes this rather simple and usually the first argument to any distribution is the number of draws you want from that distribution. So instead of choosing <code>1</code> as in the code above, we could also choose <code>10</code> to obtain ten values of the same distribution. Since all values are equally likely, there is a zero probability that any of the ten values will be the same. Do not worry if this does not yet make sense. At the end of the course you will understand why. And if you do not trust us, feel free to sample one million values and check if any of them are the same.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">10</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -5.3106017  2.5112541 -6.8677151  3.5847242 -0.8365961 -5.7187392
- [7] -6.0189922 -6.7606133  9.7952046  9.9240900</code></pre>
+<pre><code> [1]  5.87106044  1.11729069 -2.08704065  5.91118969  1.30680212  8.51654049
+ [7] -5.73460022  9.58005074 -0.01469716 -7.40182493</code></pre>
 </div>
 </div>
-<p>The ability to sample multiple values from the same distribution also allows us to obtain a random matrix for which each element is drawn independently from the same distribution. Independence means that knowing the value of one entry in the matrix will tell you nothing about what the other values will be. We will formalise this definition later on. To sample a random matrix with each element coming from the same distribution, we simply sample enough draws from the distribution and reshape it into a matrix.</p>
+<p>The ability to sample multiple values from the same distribution also allows us to obtain a random matrix for which each element is drawn independently from the same distribution. Independence means that knowing the value of one entry in the matrix will tell you nothing about what the other values will be. We will formalise this definition later on. To sample a random matrix with each element coming from the same distribution, we simply sample eneough draws from the distribution and reshape it into a matrix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">max =</span> <span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            [,1]        [,2]       [,3]      [,4]       [,5]
- [1,] -3.5713130 -0.37518264  0.9699592  4.254513 -4.1082568
- [2,]  0.4611284  1.31943360 -2.4485040 -8.413718 -6.7193400
- [3,]  9.5447636 -0.03986039  5.6719692 -5.723925  2.3496357
- [4,] -1.2187543  0.52472583 -0.2942319  7.550407  0.3444718
- [5,]  3.5018049  3.00888106 -6.7831378  2.019172  2.6677826
- [6,]  2.4875952  0.35353755  6.2483188  4.838260 -4.7636075
- [7,] -2.6427121  5.32370195 -6.6053319  3.902200 -8.6431233
- [8,]  0.8316657 -8.29043168 -1.8350054 -2.570487  9.0103183
- [9,] -0.1884462  7.94606084  2.0239705  9.414560 -2.5768445
-[10,] -0.9626703  8.80552080 -0.3061083 -2.292461  2.3814311</code></pre>
+<pre><code>            [,1]       [,2]      [,3]       [,4]      [,5]
+ [1,] -8.0611143 -7.5952552  8.787650  6.8079214  1.543419
+ [2,] -0.7550393 -1.7846112 -8.533333  2.6134487  7.300039
+ [3,] -9.0101318 -7.9999971 -5.444208 -6.4569593  8.639243
+ [4,] -9.3002559  6.9252351  5.864120  4.0568605  8.578383
+ [5,]  9.1148238  9.0315916  7.531192 -7.4674050  9.904430
+ [6,]  1.1021637  7.8038948  5.812212 -7.6899286 -6.504226
+ [7,]  7.6106918  0.8792745 -7.395454 -2.8241966 -5.380932
+ [8,]  9.1925075  3.8648222 -6.851586 -9.0190301 -4.839566
+ [9,]  9.5841651  3.6428482 -5.236099 -0.1349847 -3.722839
+[10,]  8.3010488  3.4252708  0.333706  9.2855373  2.832927</code></pre>
 </div>
 </div>
-<p>What if we wanted to draw from another distribution? Many commonly used distributions exist and you will encounter many of them during this course. R implements most of them, with <a href="#tbl-random-functions">Table&nbsp;<span>9.1</span></a> providing an overview of the functions used for each distribution. Thus far we have only used the <code>r*</code> function and we will show the use of a <code>d*</code> functions below. We will encounter the other functions throughout the remainder of this course.</p>
+<p>What if we wanted to draw from another distribution? Many commonly used distributions exist and you will encounter many of them during this course. R implements most of them, with <a href="#tbl-random-functions">Table&nbsp;<span>8.1</span></a> providing an overview of the functions used for each distribution. Thus far we have only used the <code>r*</code> function and we will show the use of a <code>d*</code> functions below. We will encounter the other functions throughout the remainder of this course.</p>
 <div id="tbl-random-functions" class="anchored">
 <table class="table-striped table-hover table">
-<caption>Table&nbsp;9.1: Collection of common distributions and their corresponding functions in R.</caption>
+<caption>Table&nbsp;8.1: Collection of common distributions and their corresponding functions in R.</caption>
 <colgroup>
 <col style="width: 24%">
 <col style="width: 14%">
@@ -414,56 +412,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </div>
-<p>According to <a href="#tbl-random-functions">Table&nbsp;<span>9.1</span></a>, to draw from the normal/Gaussian distribution, we should use <code>rnorm</code>. The normal distribution does not have the same arguments as the uniform distribution though. Thus, even though we can just call <code>rnorm(1)</code>, we will not get a value between <code>0</code> and <code>1</code> as in the <code>runif(1)</code> case. Instead, the value could theoretically be anything, with the value most likely being somewhere between <code>-3</code> and <code>3</code>.</p>
+<p>According to <a href="#tbl-random-functions">Table&nbsp;<span>8.1</span></a>, to draw from the Normal/Gaussian distribution, we should use <code>rnorm</code>. The Normal distribution does not have the same arguments as the Uniform distribution though. Thus, even though we can just call <code>rnorm(1)</code>, we will not get a value between <code>0</code> and <code>1</code> as in the <code>runif(1)</code> case. Instead, the value could theoretically be anything, with the value most likely being somewhere between <code>-1.96</code> and <code>1.96</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.55308</code></pre>
+<pre><code>[1] -1.243489</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.49151</code></pre>
+<pre><code>[1] 7.637215</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  3.732157 10.210965 10.672211 14.381870  8.046368 17.521572  8.480063
- [8] 10.082053 14.502437 13.131405</code></pre>
+<pre><code> [1]  9.812741 14.759151 10.537713 17.347994  7.892119  6.615749  8.828709
+ [8]  5.882811 11.818310 11.353453</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]      [,3]      [,4]      [,5]
- [1,]  4.335116 11.5046995  9.697173  8.651911  7.605066
- [2,]  5.819922 10.1137624  2.982633 10.154907  7.705984
- [3,]  7.276580  0.6449421 13.223495  9.650778  6.202145
- [4,]  7.514405 11.6379204 12.023304  4.788214  8.207524
- [5,] 15.695662  9.2776879 11.293142  9.858663  5.455217
- [6,] 13.520527  9.6431797 16.478934 11.603003  9.202656
- [7,]  9.824702 -1.8222605  3.261466 11.507411 11.581257
- [8,]  9.012902 11.4024169 11.149051  2.593784  9.641504
- [9,]  6.904652 11.6440788 13.801578  6.093255 18.953835
-[10,]  7.085981  8.9264889  6.969944 12.321976  6.293552</code></pre>
+<pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
+ [1,] 14.711556  8.776794  9.025872 15.579753 11.439231
+ [2,]  6.729269  7.387324  6.379581 12.314222 11.889575
+ [3,]  6.970163  4.776292  6.635297 13.207341  7.366270
+ [4,] 11.333158 14.572759  7.232898 17.734295 14.469193
+ [5,] 14.801428 16.035830 14.960768  9.799239  6.844820
+ [6,]  7.277084  9.291320  5.164475 11.782791 17.212235
+ [7,]  8.182604  8.527448 10.272915  7.817562 16.071967
+ [8,] 10.734756 15.057814 16.804846  8.483281  8.811159
+ [9,] 15.560284 11.038507  7.707942 15.353353  6.829901
+[10,] 12.431203 10.124763  7.750745  5.363917  7.441523</code></pre>
 </div>
 </div>
-<p>While the uniform distribution is parameterised by the minimum and maximum values, the normal distribution is parameterised by the mean and standard deviation. Both are already used above to obtain different random values from the normal distribution, but if you want to know more about this parameterisation and the normal distribution, you can always ask the help.</p>
+<p>While the Uniform distribution is parameterised by the minimum and maximum values, the Normal distribution is parameterised by the mean and standard deviation. Both are already used above to obtain different random values from the Normal distribution, but if you want to know more about this parameterisation and the Normal distribution, you can always ask the help.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>?rnorm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Another distribution you will encounter in the course is the Beta distribution. In contrast to the normal and the uniform distribution, there exist no universally agreed upon default parameters for the Beta distribution, and thus <code>rbeta(1)</code> does not work. Instead, every time you want to draw a value from the Beta distribution, you need to specify its shape, which you can do by specifying two more arguments after the number of draws. Also check out <code>?rbeta</code>.</p>
+<p>Another distribution you will encounter in the course is the Beta distribution. Contary to the Normal and the Uniform distribution, there exist no universally agreed upon default parameters for the Beta distribution, and thus <code>rbeta(1)</code> does not work. Instead, every time you want to draw a value from the Beta distribution, you need to specify its shape, which you can do by specifying two more arguments after the number of draws. Also check out <code>?rbeta</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4284701</code></pre>
+<pre><code>[1] 0.05367967</code></pre>
 </div>
 </div>
-<p>How does this Beta distribution look like? And how do the uniform and normal distributions look like? We can use the skills we developed so far to figure this out. First, we can draw a large number of draws from the Beta distribution. We can then plot the density histogram of these draws to get an idea of how the distribution looks like.</p>
+<p>How does this Beta distribution look like? And how do the Uniform and Normal distributions look like? We can use the skills we developed thus far to figure this out. First, we can draw a large number of draws from the Beta distribution. We can then plot the density histogram of these draws to get an idea of how the distribution looks like.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>draws_beta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">1000</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>draws_beta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(draws_beta, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08-random-numbers_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The obtained histogram depends on the random draws and thus will give you only a (random) approximation to the distribution. Alternatively, we can also plot the theoretical density. The <code>dbeta</code> function provides the density of the Beta function at any point. Thus, we can simply define the <code>x</code> range over which we want to plot the Beta density, then create a sequence of <code>x</code> points within that range and calculate the density at each of these points. This can then be plotted to get an even better understanding of how the theoretical density looks like.</p>
+<p>Even better than the empirical density that we obtained above, we can also plot the theoretical density. The <code>dbeta</code> function provides the density of the Beta function at any point. Thus, we can simply define the <code>x</code> range over which we want to plot the Beta density, then create a sequence of <code>x</code> points within that range and calculate the density at each of these points. This can then be plotted to get an even better understanding of how the theoretical density looks like.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>density_beta <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(x, <span class="dv">1</span>, <span class="dv">1</span>)</span>
@@ -472,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="08-random-numbers_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>With <code>10000</code> draws, the empirical density was quite close to the theoretical density. We could compare these two more easily if we plot them in the same plot. Additionally, we might ask just how many of these draws we need for a reasonably precise answer, and how the Beta distribution looks like for various parameter values. Thus, we would like to do the same thing multiple times, each time only changing a small part of the code. By now, this should ring a bell: A function is needed! Below we implement a function that allows us to compare the empirical and theoretical density for various parameterisations and number of draws.</p>
+<p>With <code>10000</code> draws, the empirical density was quite close to the theoretical density. We could compare these two even better if we would plot them in the same plot. Additionally, we might ask just how many of these draws we need, and how the Beta distribution looks like for various values. Thus, we would like to do the same thing multiple times, each time only changing a small part of the code. By now, this should ring a bell: A function is needed! Below we implement a function that allows us to compare the empirical and theoretical density for various parameterisations and number of draws.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Compares the empirical and theoretical density of a Beta distribution</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
@@ -501,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(x, density_beta, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
 <span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Even better than above, we can see that the empirical density is very close to the theoretical density if we use <code>10000</code> draws.</p>
+<p>Even better than above, we can see that the empirical density is very close to the theoretical density if we use <code>1000</code> draws.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_beta_density</span>(<span class="dv">10000</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -542,8 +540,8 @@ Tip
 <p><img src="08-random-numbers_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Replicability is an important problem in science. Only results that can be replicated should be trusted. Unfortunately, many scientific results are difficult to replicate or are just never replicated for other reasons. Nonetheless, we should always aim at making our work as replicable as possible. This is not just for others, but also for ourselves. Sometimes we need to obtain the same graph again because we might have to change the title. If the function provides a new graph each time, it becomes difficult to convince anyone that we actually used the same graph as before. Thus, we have to make our code replicable. Clean code is a first step towards that, but if we use randomness, we also need to use a seed.</p>
-<p>A seed assures that each time we run the code, we will obtain exactly the same results. The emphasis is on run the same code. We only obtain the same result if we run everything after the line at which we set the seed. To set a seed, we use <code>set.seed</code> and provide any integer to it. A good practice is to use a large integer, but even <code>set.seed(1)</code> is better than not setting any seed.</p>
+<p>Replicability is an important problem in science. Only results that can be replicated should be trusted. Unfortunately, many scientific results are difficult to replicate or are just never replicated for other reasons. Nonetheless, we should always aim at making our work as replicable as possible. This is not just for others, but also for ourselves. Sometimes we need to obtain the same graph again because we migth have to change the title. If the function provides a new graph each time, it becomes difficult to convince anyone that we actually used the same graph as before. Thus, we have to make our code replicable. Clean code is a first step towards that, but if we use randomness, we also need to use a seed.</p>
+<p>A seed assures that each time we run the code, we will obtain exactly the same results. The emphsise is on run the same code. We only obtain the same result if we run everything after the line at which we set the seed. To set a seed, we use <code>set.seed</code> and provide any integer to it. A good practice is to use a large integer, but even <code>set.seed(1)</code> is better than not setting any seed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">6150533</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -559,17 +557,7 @@ Tip
 <pre><code>[1] 1.583487</code></pre>
 </div>
 </div>
-<p>The downside of using a seed is that no matter how many times you run the above code you always will get the same value - quite the opposite of what you should expect of a random number! So while exploring some random quantity you do not want to reset the seed again and again to the same value. However, when starting to collect your results you need to set the seed (e.g.&nbsp;at the beginning of your submitted code) in order to make your results reproducible.</p>
-<p>R itself initialises its random number generators by use of the current time and some process ID. You can make use of this quite arbitrary initialisation by choosing the seed itself at random:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">100000000</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 65192504</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45489699</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>We cannot emphasise enough that you should <strong>always set a seed</strong>. Not setting a seed will lead to problems later on and in this course will lead to potential loss of points.</p>
 
 
 
@@ -809,14 +797,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-functions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></span>
+      <a href="../01-introduction/07-functions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09-monte-carlo-simulation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monte Carlo simulations</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
