@@ -16,7 +16,7 @@ book:
     - 06-conditionals.qmd
     - 07-functions.qmd
     - 08-random-numbers.qmd
-    # - 09-monte-carlo-simulation.qmd
+    - 09-monte-carlo-simulation.qmd
     # - references.qmd
 
 bibliography: references.bib
